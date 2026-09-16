@@ -1,0 +1,85 @@
+.legal-text-content{
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 42px 48px;
+    background: #fff;
+    border: 1px solid #dfebe4;
+    border-radius: 20px;
+    box-shadow: 0 12px 40px rgba(22,70,45,.08);
+}
+/* Title */
+.legal-siteTitle a {
+    text-decoration: none;
+    color: #1A8EFD;
+    font-size: 48px;
+    letter-spacing: .8px;
+}
+.legal-siteTitle {
+    padding: 22px 0;
+    border-radius: 2px;
+    background-color: white;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+.legal-kicker { margin: 0; color: #198754; font-size: 12px; font-weight: 800; letter-spacing: 1.5px; }
+.legal-page-heading { margin: 7px 0 30px; color: #17352a; font-size: 38px; line-height: 1.2; }
+.legal-siteSign{
+    color: #54de54;
+    font-family: Cambria, sans-serif;
+    font-size: 56px;
+    font-weight: bold;
+}
+/* Info */
+.legal-title {
+    margin: 26px 0 8px;
+    padding: 0;
+    border: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #194b37;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: .8px;
+}
+.legal-description {
+    margin: 0;
+    font-family: 'Rubik', sans-serif;
+    color: #56675e;
+    font-size: 16px;
+    letter-spacing: .2px;
+    line-height: 1.75;
+}
+/* Footer */
+.legal-footer {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 28px 10px 45px;
+    display: block;
+    color: black;
+    font-family: 'Rubik', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: .8px;
+    line-height: 1.6rem;
+}
+.legal-footer p { margin: 0 0 4px; }
+.legal-footer .legal-developer { color: #5f7067; font-weight: 500; }
+.legal-footer a { display: inline-block; margin-top: 12px; color: #198754; text-decoration: none; }
+/* Responsive */
+@media screen and (max-width: 600px) {
+    .legal-section {
+        padding: 24px;
+    }
+    .legal-text-content { width: calc(100% - 24px); padding: 27px 20px; }
+    .legal-page-heading { font-size: 30px; }
+    .legal-title {
+        font-size: 24px;
+    }
+    .legeal-description {
+        font-size: 16px;
+    }
+    .legal-footer {
+        padding: 12px 20px;
+        text-align: center;
+        font-size: 16px;
+    }
+}

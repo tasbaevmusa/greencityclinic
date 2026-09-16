@@ -1,0 +1,150 @@
+/* Shared responsive rules load after component styles. */
+html { -webkit-text-size-adjust: 100%; }
+*, *::before, *::after { box-sizing: border-box; }
+img, video, iframe { max-width: 100%; }
+input, select, textarea { min-width: 0; max-width: 100%; }
+textarea { resize: vertical; }
+h1, h2, h3, p, a, label, strong { overflow-wrap: anywhere; }
+:is(.hero-container, .services-grid, .news-grid, .faq-container, .footer-container,
+  .location-content, .doctors-slider-track, .dashboard-cards, .admin-main,
+  .doctors-admin-grid, .news-admin-grid, .reviews-admin-grid, .vacancies-admin-grid) > * { min-width: 0; }
+.hero-container::before { right: 0; max-width: 100%; }
+.hero-eyebrow svg, .hero-actions svg, .service-card__external,
+.location-map-button svg, .footer-column svg, .faq-label svg { flex-shrink: 0; }
+.service-card__left { min-width: 0; }
+.service-card__icon { flex-shrink: 0; }
+.service-card { gap: 12px; }
+.doctors-slider-track, .admin-main, .admin-content, .schedule-card, .public-schedule-card { min-width: 0; }
+.doctor-details article { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.price-list-heading { flex-wrap: wrap; }
+.price-list-document > p { display: block; }
+.form-container { min-height: 100dvh; }
+.form-content { width: 100%; max-width: 800px; margin-inline: auto; }
+.admin-sidebar { height: 100dvh; min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
+.admin-backdrop { display: none; }
+.shift-dialog { max-height: calc(100dvh - 40px); overflow-y: auto; }
+.form-actions, .dialog-actions, .schedule-legend { flex-wrap: wrap; }
+.admin-doctors article > div { min-width: 0; }
+.admin-doctors img, .admin-sidebar svg, .admin-user > span { flex-shrink: 0; }
+.admin-user { min-width: 0; }
+.admin-user strong { max-width: 200px; }
+.schedule-scroll, .public-schedule-scroll { max-width: 100%; overscroll-behavior-x: contain; }
+.accessibility-panel { max-height: calc(100dvh - 100px); overflow-y: auto; }
+
+@media (max-width: 1200px) {
+  .utility-details { gap: 14px; }
+  .utility-details > span { display: none; }
+  .desktop-nav, .header-main > .header-container > .appointment-btn { display: none; }
+  .header-main-inner { justify-content: space-between; min-height: 70px; }
+  .mobile-toggle { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid #dceae7; border-radius: 10px; background: #f3f8f7; color: #087f7d; cursor: pointer; }
+  .mobile-menu { display: block; position: absolute; top: 100%; left: 0; width: 100%; background: #fff; border-top: 1px solid #e3ece9; box-shadow: 0 22px 40px #14484124; visibility: hidden; opacity: 0; pointer-events: none; }
+  .mobile-menu.show { visibility: visible; opacity: 1; pointer-events: auto; }
+  .mobile-menu-inner { width: 92%; max-width: 680px; max-height: calc(100dvh - 130px); overflow-y: auto; overscroll-behavior: contain; margin: auto; padding: 12px 0 20px; }
+  .mobile-direct-link, .mobile-nav-group > div:first-child { display: flex; align-items: center; min-height: 48px; border-bottom: 1px solid #edf2f1; }
+  .mobile-direct-link, .mobile-nav-group a { color: #18332d; text-decoration: none; font-size: 15px; font-weight: 700; }
+  .mobile-nav-group > div:first-child a { flex: 1; }
+  .mobile-nav-group button { display: grid; place-items: center; width: 44px; height: 44px; color: #087f7d; border: 0; border-radius: 8px; background: #f3f8f7; }
+  .mobile-submenu { display: grid; padding: 8px 0 8px 12px; }
+  .mobile-submenu a { padding: 12px 8px; font-size: 14px; font-weight: 500; }
+  .mobile-contact { display: grid; gap: 12px; padding: 18px 0; }
+  .mobile-contact a, .mobile-contact span { display: flex; gap: 8px; align-items: center; color: #566a64; text-decoration: none; font-size: 13px; }
+  .mobile-btn { width: 100%; min-height: 44px; }
+  .doctors-admin-grid, .news-admin-grid, .reviews-admin-grid, .vacancies-admin-grid { grid-template-columns: minmax(0, 1fr); }
+  .doctor-form, .news-admin-form, .review-admin-form, .vacancy-admin-form { position: static; }
+  .schedule-toolbar { flex-direction: column; align-items: stretch; }
+  .schedule-filters { flex-wrap: wrap; }
+  .dashboard-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 900px) {
+  .header-accessibility { width: 44px; min-height: 36px; padding: 0; justify-content: center; flex-shrink: 0; }
+  .header-accessibility span { display: none; }
+  .utility-details a { white-space: nowrap; }
+  .utility-inner { gap: 12px; }
+  .utility-actions { gap: 8px; }
+}
+
+@media (max-width: 850px) {
+  .admin-backdrop { display: block; position: fixed; inset: 0; z-index: 9; border: 0; background: #102d2266; }
+  .admin-sidebar { width: min(280px, calc(100vw - 64px)); visibility: hidden; }
+  .sidebar-open .admin-sidebar { visibility: visible; }
+  .location-content { grid-template-columns: minmax(0, 1fr); }
+  .footer-container { gap: 30px; }
+}
+
+@media (max-width: 700px) {
+  .doctor-details article { grid-template-columns: minmax(0, 1fr); }
+  .doctor-details img { height: auto; max-height: 420px; object-fit: contain; }
+  .public-schedule-controls { padding: 16px; }
+  .public-week-picker, .public-schedule-filters { flex-wrap: wrap; }
+  .public-week-picker div { min-width: 0; }
+  .public-schedule-filters label, .public-schedule-filters select { width: 100%; }
+  .public-schedule-filters input { min-width: 0; }
+  .legal-text-content { width: calc(100% - 28px); padding: 24px 18px; }
+  .legal-section { padding: 24px 0; }
+  .vacancies-page, .about-detail { width: calc(100% - 28px); margin: 40px auto 70px; }
+  .vacancies-page h1, .about-detail h1, .price-list-heading h1, .legal-page-heading { font-size: clamp(26px, 6vw, 34px); line-height: 1.25; }
+  .vacancies-list article, .vacancies-empty, .about-detail > div { padding: 22px 18px; }
+  .price-list-document iframe { min-height: 360px; height: 65dvh; }
+  .footer-bottom { padding-bottom: 65px; }
+  .auth-card { padding: 26px 20px; }
+  .auth-page, .status-page { padding: 16px; min-height: 100dvh; }
+  input:not([type="checkbox"]):not([type="radio"]), select, textarea { font-size: 16px; }
+  .form-content label :is(input, select) { min-height: 46px; }
+  .admin-heading { flex-wrap: wrap; gap: 12px; }
+  .admin-heading h1, .dashboard-intro h1, .dashboard-panel h1 { font-size: clamp(24px, 6vw, 30px); }
+  .admin-doctors article { flex-wrap: wrap; }
+  .management-tabs { overflow-x: auto; }
+  .management-tabs button { flex-shrink: 0; }
+  .dashboard-panel { padding: 20px; }
+}
+
+@media (max-width: 480px) {
+  .hero-copy h1 { font-size: clamp(30px, 8.5vw, 39px); }
+  .hero-visual { height: clamp(240px, 76vw, 320px); }
+  .hero-eyebrow { line-height: 1.5; }
+  .hero-phone-card { right: 0; }
+  .hero-hours-card { left: 0; }
+  .service-card { padding: 17px 14px; }
+  .service-card__left { gap: 11px; }
+  .service-card__icon { width: 44px; height: 44px; }
+  .service-card__title { font-size: 15px; }
+  .doctors-slider { display: grid; grid-template-columns: 44px 1fr 44px; gap: 12px; }
+  .doctors-slider-track { grid-column: 1 / -1; grid-row: 1; }
+  .doctors-slider > button { grid-row: 2; width: 44px; height: 44px; }
+  .doctors-slider > button:last-child { grid-column: 3; }
+  .doctors-slider-heading { flex-wrap: wrap; gap: 12px; }
+  .news-card { padding: 21px 18px; }
+  .rw-card { padding: 22px 18px; }
+  .rw-card footer { flex-wrap: wrap; align-items: flex-start; }
+  .rw-card blockquote { font-size: 19px; }
+  .footer-container { grid-template-columns: minmax(0, 1fr); }
+  .footer-column a { min-height: 40px; }
+  .price-list-actions { flex-wrap: wrap; }
+  .price-list-actions a { flex: 1 1 110px; }
+  .form-container { padding: 24px 16px 85px; }
+  .text-appointment-btn { max-width: 100%; white-space: normal; }
+  .doctor-details { padding: 0 14px; }
+  .doctor-details h1 { font-size: 28px; }
+  .dashboard-cards { grid-template-columns: minmax(0, 1fr); }
+  .admin-navbar { padding: 0 12px; gap: 12px; }
+  .admin-content { padding: 22px 12px 85px; }
+  .doctor-form, .news-admin-form, .review-admin-form, .vacancy-admin-form { padding: 18px 14px; }
+  .week-switcher div { min-width: 0; }
+  .schedule-toolbar { padding: 16px 12px; }
+  .schedule-legend { gap: 10px; padding: 14px 12px; }
+  .shift-overlay { padding: 12px; }
+  .shift-dialog { padding: 18px; max-height: calc(100dvh - 24px); }
+  .dialog-actions button { flex-grow: 1; justify-content: center; }
+}
+
+@media (pointer: coarse) {
+  .header-languages button, .header-accessibility, .admin-menu-button, .logout-button,
+  .public-week-picker button, .week-switcher > button { min-height: 44px; min-width: 44px; }
+  .service-card:hover, .doctor-slide:hover { transform: none; }
+}
+@media (max-height: 500px) and (orientation: landscape) {
+  .mobile-menu-inner { max-height: calc(100dvh - 110px); }
+  .admin-sidebar { padding-top: 12px; }
+  .admin-brand { padding-bottom: 12px; }
+}

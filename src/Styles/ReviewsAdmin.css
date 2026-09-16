@@ -1,0 +1,13 @@
+.reviews-admin-grid { display: grid; grid-template-columns: minmax(280px, 380px) 1fr; gap: 24px; align-items: start; }
+.review-admin-form, .admin-reviews article { background: #fff; border: 1px solid #e6edf3; border-radius: 16px; padding: 22px; box-shadow: 0 8px 24px rgba(25, 56, 89, .06); }
+.review-admin-form { display: grid; gap: 14px; position: sticky; top: 90px; }
+.review-admin-form label { display: grid; gap: 7px; font-weight: 700; color: #263746; }
+.review-admin-form input, .review-admin-form select, .review-admin-form textarea { width: 100%; box-sizing: border-box; border: 1px solid #ccd8e2; border-radius: 9px; padding: 11px; font: inherit; }
+.review-admin-hint { color: #607080; font-size: 13px; margin: 0; }
+.admin-reviews { display: grid; gap: 14px; }
+.admin-reviews article h3 { margin: 6px 0 2px; }
+.admin-reviews article p { line-height: 1.55; }
+.admin-reviews article button { margin-right: 8px; border: 0; border-radius: 8px; padding: 9px 13px; cursor: pointer; }
+.admin-reviews article .delete { color: #b42318; background: #fee4e2; }
+.admin-review-stars { color: #f5a623; letter-spacing: 2px; }
+@media (max-width: 850px) { .reviews-admin-grid { grid-template-columns: 1fr; } .review-admin-form { position: static; } }
