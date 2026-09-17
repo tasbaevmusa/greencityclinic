@@ -10,6 +10,7 @@ import DoctorsSlider from "../Components/DoctorsSlider";
 import Footer from "../Components/Footer";
 import FAQ from "../Components/FAQ";
 import ChiefDoctor from "../Components/ChiefDoctor";
+import PopularServices from "../Components/PopularServices";
 
 function Home() {
   return (
@@ -19,6 +20,7 @@ function Home() {
       <Info />
       <DoctorsSlider />
       <ChiefDoctor />
+      <PopularServices />
       <News />
       <Reviews />
       <FAQ />
