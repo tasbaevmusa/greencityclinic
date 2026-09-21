@@ -9,7 +9,9 @@ const toPublicUser = ({ password, ...user }) => user;
 
 export const authService = {
   async login({ email, password }) {
-    const account = developmentAccounts.find(item => item.email.toLowerCase() === email.trim().toLowerCase() && item.password === password);
+    const cleanEmail = String(email ?? "").normalize("NFKC").replace(/[\u200B-\u200D\uFEFF]/g, "").trim().toLowerCase();
+    const cleanPassword = String(password ?? "").normalize("NFKC").replace(/[\u200B-\u200D\uFEFF]/g, "").trim();
+    const account = developmentAccounts.find(item => item.email.toLowerCase() === cleanEmail && item.password === cleanPassword);
     if (!account) throw new Error("Неверный email или пароль");
     const user = toPublicUser(account);
     localStorage.setItem(STORAGE_KEY, JSON.stringify(user));

@@ -21,6 +21,7 @@ import PriceList from "./Pages/PriceList";
 import ServiceDetail from "./Pages/ServiceDetail";
 import DoctorsSchedule from "./Pages/DoctorsSchedule";
 import PatientDetail from "./Pages/PatientDetail";
+import StateSymbols from "./Pages/StateSymbols";
 
 import AdminDashboard from "./Pages/AdminDashboard";
 import AdminPlaceholder from "./Pages/AdminPlaceholder";
@@ -64,6 +65,7 @@ function App() {
                 <Route path="/services/price-list" element={<PriceList />} />
                 <Route path="/services/:slug" element={<ServiceDetail />} />
                 <Route path="/patients/:section" element={<PatientDetail />} />
+                <Route path="/state-symbols" element={<StateSymbols />} />
 
                 {/* Авторизация */}
                 <Route path="/login" element={<LoginPage />} />

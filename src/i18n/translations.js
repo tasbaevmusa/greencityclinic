@@ -1,7 +1,7 @@
 const translations = {
   kk: {
     clinic: "КЛИНИКАСЫ",
-    nav: { home: "Басты бет", about: "Біз туралы", services: "Қызметтер", doctors: "Дәрігерлер", news: "Жаңалықтар", contact: "Байланыс" },
+    nav: { home: "Басты бет", about: "Біз туралы", symbols: "Мемлекеттік рәміздер", services: "Қызметтер", doctors: "Дәрігерлер", news: "Жаңалықтар", contact: "Байланыс" },
     aboutMenu: { vision: "Көзқарас", mission: "Миссия", vacancies: "Бос орындар", news: "Жаңалықтар", achievements: "Жетістіктер", schedule: "Дәрігерлердің жұмыс кестесі" },
     priceList: "Ақылы қызметтердің прейскуранты",
     appointment: "Онлайн жазылу",
@@ -37,7 +37,7 @@ const translations = {
   },
   ru: {
     clinic: "КЛИНИКА",
-    nav: { home: "Главная", about: "О нас", services: "Услуги", doctors: "Врачи", news: "Новости", contact: "Контакты" },
+    nav: { home: "Главная", about: "О нас", symbols: "Государственные символы", services: "Услуги", doctors: "Врачи", news: "Новости", contact: "Контакты" },
     aboutMenu: { vision: "Видение", mission: "Миссия", vacancies: "Вакансии", news: "Новости", achievements: "Достижения", schedule: "График работы врачей" },
     priceList: "Прейскурант платных услуг",
     appointment: "Онлайн-запись",

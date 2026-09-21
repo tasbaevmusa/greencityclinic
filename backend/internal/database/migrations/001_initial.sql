@@ -23,3 +23,35 @@ CREATE TABLE IF NOT EXISTS doctor_schedules (
 );
 CREATE INDEX IF NOT EXISTS idx_schedules_work_date ON doctor_schedules(work_date);
 ALTER TABLE doctors ALTER COLUMN whatsapp SET DEFAULT '';
+
+-- Initial clinic staff. Descriptions and photos can be filled in later from
+-- the admin panel. The name check keeps this seed idempotent for existing
+-- installations where the schema is applied again on every API start.
+INSERT INTO doctors (name, position, description, image)
+SELECT seed.name, seed.position, '', ''
+FROM (VALUES
+  ('НҰРМАХАН АЙЫМГҮЛ САҒАТҚЫЗЫ', 'Врач ЭХОКГ'),
+  ('ЖОЛДАСОВА ЭЛЬМИРА САПАРБАЕВНА', 'Врач УЗИ'),
+  ('МАДРАИМОВА КУЛЯШ БИЛАЛОВНА', 'Врач УЗИ'),
+  ('ШУДАБАЕВА МЕРУЕРТ ШАКЕНОВНА', 'Врач УЗИ'),
+  ('ДОЛАЕВ ЖАРАС АСХАТҰЛЫ', 'Ангиохирург'),
+  ('ТАШПУЛАТОВ БАХТИЯР АЗАТОВИЧ', 'Ангиохирург'),
+  ('БАХЫТЖАН МАДИНА БОЛАТҚЫЗЫ', 'Гастроэнтеролог'),
+  ('ЖУМАБАЕВА АЙМЕРЕКЕ ЕРТАЛГАРБЕКОВНА', 'Детский гастроэнтеролог'),
+  ('АЙТИКЕНОВА ЛЯЗЗАТ ОЙРАТОВНА', 'Офтальмолог'),
+  ('ХАЗИЕВА НАЗУГУМ ОМАРЖАНОВНА', 'Офтальмолог'),
+  ('МЕЙРАМБАЙ ЖАННА ЮГДАНҚЫЗЫ', 'Аритмолог'),
+  ('МУКАШОВА АЙЖАН ЕРКІНҚЫЗЫ', 'Нефролог'),
+  ('РАЙХАН ТӨЛЕГЕН БАҒДАТҰЛЫ', 'Гематолог'),
+  ('СЫЗДЫКОВА АЙЫМ НУРЖАНОВНА', 'Гематолог'),
+  ('АГАДАДИЕВА ЭЛЬМИРА ХАМИТОВНА', 'Эндокринолог'),
+  ('УТЕНОВА АЗИЗА РАЗАКОВНА', 'Гинеколог'),
+  ('АЛЬЖАНОВА ГАУҺАР ШАЛАБАЙҚЫЗЫ', 'Детский невропатолог'),
+  ('РЫСБАЕВА АЙДАНА САҒИДУЛЛАҚЫЗЫ', 'Взрослый невропатолог'),
+  ('ЫДЫРЫС ҰЛШАЙ БАТЫРХАНҚЫЗЫ', 'Пульмонолог'),
+  ('ҚАБДРАШ ЖАҢЫЛСЫН ҚУАНБЕКҚЫЗЫ', 'Врач общей практики'),
+  ('ШӘМШІ АЖАР МАРАТҚЫЗЫ', 'Врач общей практики')
+) AS seed(name, position)
+WHERE NOT EXISTS (
+  SELECT 1 FROM doctors existing WHERE lower(existing.name) = lower(seed.name)
+);

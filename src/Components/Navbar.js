@@ -32,6 +32,7 @@ function Navbar() {
     ["contact", "/#contact"],
   ];
   const aboutMenu = [
+    [language === "kk" ? "Мемлекеттік рәміздер" : "Государственные символы", "/state-symbols"],
     [t.aboutMenu.vision, "/about/vision"],
     [t.aboutMenu.mission, "/about/mission"],
     [t.aboutMenu.achievements, "/about/achievements"],
@@ -71,7 +72,7 @@ function Navbar() {
 
   const isActive = (key) => {
     if (key === "home") return location.pathname === "/" && !location.hash;
-    if (key === "about") return location.pathname.startsWith("/about") || location.pathname === "/vacancies";
+    if (key === "about") return location.pathname.startsWith("/about") || location.pathname === "/vacancies" || location.pathname === "/state-symbols";
     if (key === "services") return location.pathname.startsWith("/services") || location.hash === "#services";
     if (key === "patients") return location.pathname.startsWith("/patients") || location.pathname === "/appointment" || location.hash === "#faq";
     return location.hash === `#${key}`;

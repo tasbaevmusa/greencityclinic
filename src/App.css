@@ -1,9 +1,25 @@
-/* Google Font */
+/* Noto Sans includes the extended Cyrillic glyphs used by Kazakh. */
+:root{
+    --app-font-family:'Noto Sans','Segoe UI',Arial,sans-serif;
+}
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Manrope','Segoe UI',Arial,sans-serif;
+    font-family:var(--app-font-family);
+}
+
+/* Some legacy component styles request fonts that are not loaded and may not
+   contain Kazakh glyphs. Keep all visible UI text on the Unicode-safe family. */
+body,
+#root,
+#root *,
+button,
+input,
+select,
+textarea{
+    font-family:var(--app-font-family);
 }
 
 html{
@@ -17,6 +33,7 @@ body{
 
     -webkit-font-smoothing:antialiased;
     -moz-osx-font-smoothing:grayscale;
+    text-rendering:optimizeLegibility;
 
     /* Медицинский фон */
     background:
