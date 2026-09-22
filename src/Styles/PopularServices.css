@@ -1,6 +1,6 @@
 .popular-services {
   padding: 72px 24px 78px;
-  background: #f3f6f8;
+  background: var(--brand-surface);
 }
 
 .popular-services__container {
@@ -18,7 +18,7 @@
 
 .popular-services__header p {
   margin: 0 0 10px;
-  color: #078d82;
+  color: var(--brand-green);
   font-size: 11px;
   font-weight: 800;
   letter-spacing: .045em;
@@ -26,7 +26,7 @@
 
 .popular-services__header h2 {
   margin: 0;
-  color: #202b3c;
+  color: var(--brand-ink);
   font-size: clamp(28px, 3.2vw, 40px);
   line-height: 1.15;
   letter-spacing: -.025em;
@@ -40,8 +40,8 @@
   justify-content: center;
   gap: 7px;
   flex-shrink: 0;
-  color: #087f7d;
-  border: 1px solid #07928d;
+  color: var(--brand-green);
+  border: 1px solid var(--brand-green);
   border-radius: 999px;
   font-size: 12px;
   font-weight: 750;
@@ -51,7 +51,7 @@
 
 .popular-services__all:hover {
   color: #fff;
-  background: #078d82;
+  background: var(--brand-green);
   transform: translateY(-2px);
 }
 
@@ -68,7 +68,7 @@
   display: block;
   color: #fff;
   border-radius: 13px;
-  background: #d9e2e3;
+  background: var(--brand-border);
   box-shadow: 0 8px 24px rgba(30, 52, 58, .12);
   text-decoration: none;
   isolation: isolate;
@@ -101,7 +101,7 @@
   position: absolute;
   display: grid;
   place-items: center;
-  color: #078d82;
+  color: var(--brand-green);
   background: rgba(255, 255, 255, .96);
   border-radius: 50%;
 }
@@ -121,7 +121,7 @@
 }
 
 .popular-service-card:hover img { transform: scale(1.045); }
-.popular-service-card:hover .popular-service-card__arrow { color: #fff; background: #078d82; }
+.popular-service-card:hover .popular-service-card__arrow { color: #fff; background: var(--brand-green); }
 
 @media (max-width: 900px) {
   .popular-services__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }

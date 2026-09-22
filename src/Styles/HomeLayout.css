@@ -1,0 +1,93 @@
+/* Shared scale for the public homepage, loaded after responsive component rules. */
+.home-section {
+  --site-container-width: calc(100% - 48px);
+  --site-container-max: 1200px;
+  --section-space: clamp(40px, 5vw, 64px);
+  --section-title-size: clamp(26px, 3vw, 34px);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.home-section :is(.header-container, .mobile-menu-inner, .hero-container, .services-section, .doctors-slider-heading,
+  .doctors-slider, .chief-container, .popular-services__container, .news-container,
+  .rw-text-content, .faq-container, .location-container) {
+  width: var(--site-container-width);
+  max-width: var(--site-container-max);
+  margin-inline: auto;
+}
+
+.home-section :is(.doctors-slider-section, .chief-section, .popular-services,
+  .news-section, .review-section, .faq-section, .location-section) {
+  padding: var(--section-space) 0;
+  min-height: 0;
+}
+
+.home-section .services-section { margin-block: var(--section-space); }
+.home-section .hero-container {
+  min-height: 0;
+  margin-bottom: 0;
+  padding-block: var(--section-space);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 56px);
+}
+.home-section .hero-copy h1 {
+  font-size: clamp(32px, 4vw, 50px);
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -.025em;
+}
+.home-section :is(.doctors-slider-heading h2, .chief-copy h2,
+  .popular-services__header h2, .news-heading h2, .rw-heading h2,
+  .faq-intro h2, .location-container > h2) {
+  font-size: var(--section-title-size);
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: -.02em;
+  color: var(--brand-ink);
+  overflow-wrap: normal;
+}
+.home-section :is(.doctors-slider-heading, .popular-services__header,
+  .news-heading, .rw-heading, .location-container > h2) { margin-bottom: 28px; }
+.home-section :is(.hero-copy > p, .chief-greeting, .faq-description,
+  .news-card > p, .doctor-slide p, .contact-row) { font-size: 16px; line-height: 1.65; }
+.home-section :is(.chief-label, .popular-services__header p,
+  .news-heading p, .rw-kicker, .faq-label, .doctors-slider-heading > div > p) {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .06em;
+}
+.home-section :is(.doctor-slide h3, .news-card h3) {
+  font-size: 20px;
+  line-height: 1.4;
+  font-weight: 700;
+}
+.home-section :is(.hero-primary, .hero-secondary, .chief-action,
+  .popular-services__all, .location-map-button) {
+  min-height: 46px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 10px;
+}
+.home-section .service-card { min-height: 108px; padding: 20px; }
+.home-section .service-card__title { font-size: 16px; line-height: 1.45; }
+.home-section .service-card__icon { width: 48px; height: 48px; }
+.home-section .popular-service-card { min-height: 300px; }
+.home-section .popular-service-card strong { font-size: 18px; line-height: 1.4; }
+.home-section .rw-card blockquote { font-size: clamp(18px, 2vw, 22px); line-height: 1.6; }
+.home-section .chief-container {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 40px;
+}
+.home-section .chief-portrait { width: min(100%, 280px); justify-self: center; }
+.home-section .popular-services__header { flex-wrap: wrap; }
+
+@media (max-width: 820px) {
+  .home-section .hero-container { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 650px) {
+  .home-section { --site-container-width: calc(100% - 32px); }
+  .home-section .chief-container { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .home-section .chief-portrait { width: min(100% - 24px, 280px); }
+  .home-section .service-card { min-height: 88px; padding: 16px; }
+  .home-section .popular-service-card { min-height: 280px; }
+}

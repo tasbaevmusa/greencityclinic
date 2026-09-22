@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import ChiefPhoto from "../Assets/profile-1.png";
+import ChiefPhoto from "../Assets/chief-doctor.png";
 import { useLanguage } from "../i18n/LanguageContext";
 import "../Styles/ChiefDoctor.css";
 

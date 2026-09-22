@@ -69,7 +69,7 @@
   display: flex; align-items: center; gap: 12px; color: #27543a; background: rgba(255,255,255,.95);
   border: 1px solid #dbe9dd; border-radius: 15px; box-shadow: 0 18px 38px rgba(26,76,43,.16); backdrop-filter: blur(8px);
 }
-.hero-hours-card > span { width: 40px; height: 40px; display: grid; place-items: center; flex: 0 0 auto; color: #198754; background: #e8f5ea; border-radius: 11px; }
+.hero-hours-card > span { width: 40px; height: 40px; display: grid; place-items: center; flex: 0 0 auto; color: var(--brand-green); background: #e8f5ea; border-radius: 11px; }
 .hero-hours-card div { display: flex; flex-direction: column; }
 .hero-hours-card small { color: #71867a; text-transform: uppercase; letter-spacing: .07em; }
 .hero-hours-card strong { margin-top: 3px; color: #245338; font-size: 13px; line-height: 1.3; }

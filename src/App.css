@@ -1,6 +1,20 @@
 /* Noto Sans includes the extended Cyrillic glyphs used by Kazakh. */
 :root{
     --app-font-family:'Noto Sans','Segoe UI',Arial,sans-serif;
+    --brand-green:#187847;
+    --brand-green-dark:#105c35;
+    --brand-ink:#183b29;
+    --brand-muted:#587162;
+    --brand-surface:#f3f8f2;
+    --brand-soft:#e5f2e7;
+    --brand-border:#cfdfd2;
+}
+
+::selection{background:var(--brand-border);color:var(--brand-ink);}
+
+:where(a,button,input,select,textarea):focus-visible{
+    outline:3px solid var(--brand-green);
+    outline-offset:3px;
 }
 
 *{

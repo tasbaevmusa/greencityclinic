@@ -42,7 +42,7 @@
 
     transform:translateY(-6px);
 
-    border-color:#198754;
+    border-color:var(--brand-green);
 
     box-shadow:0 18px 35px rgba(25,135,84,.15);
 
@@ -70,7 +70,7 @@
 
     background:#eaf8f0;
 
-    color:#198754;
+    color:var(--brand-green);
 
     transition:.3s;
 
@@ -78,7 +78,7 @@
 
 .service-card:hover .service-card__icon{
 
-    background:#198754;
+    background:var(--brand-green);
 
     color:#ffffff;
 
@@ -86,7 +86,7 @@
 
 .service-card__title{
 
-    color:#1f2937;
+    color:var(--brand-ink);
 
     font-size:18px;
 
@@ -98,7 +98,7 @@
 
 .service-card__external{
 
-    color:#198754;
+    color:var(--brand-green);
 
     transition:.3s;
 

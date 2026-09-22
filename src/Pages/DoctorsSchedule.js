@@ -73,7 +73,7 @@ function DoctorsSchedule() {
             <div className="public-grid-head public-doctor-column">Врач</div>
             {dates.map((item) => <div className={`public-grid-head ${item.key === new Date().toISOString().slice(0, 10) ? "current" : ""}`} key={item.key}><b>{item.name}</b><span>{item.date.getDate()}</span></div>)}
             {visibleDoctors.map((doctor) => <React.Fragment key={doctor.id}>
-              <div className="public-doctor-column public-doctor-info"><img src={doctor.image} alt=""/><div><b>{doctor.name}</b><span>{doctor.position}</span></div></div>
+              <div className="public-doctor-column public-doctor-info"><div><b>{doctor.name}</b><span>{doctor.position}</span></div></div>
               {dates.map((date) => {
                 const shift = schedule[doctor.id]?.[date.key];
                 return <div className={`public-shift ${shift?.type || "none"}`} key={date.key}>

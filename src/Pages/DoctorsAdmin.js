@@ -159,7 +159,7 @@ function DoctorsAdmin() {
             <div className="grid-head doctor-column">Врач / специальность</div>
             {dates.map((date) => <div className={`grid-head ${date.key === new Date().toISOString().slice(0, 10) ? "today" : ""}`} key={date.key}><b>{date[1]}</b><span>{date.date.getDate()}</span></div>)}
             {filteredDoctors.map((doctor) => <React.Fragment key={doctor.id}>
-              <div className="doctor-column doctor-cell"><img src={doctor.image} alt=""/><div><b>{doctor.name}</b><span>{doctor.position}</span></div></div>
+              <div className="doctor-column doctor-cell"><div><b>{doctor.name}</b><span>{doctor.position}</span></div></div>
               {dates.map((date) => {
                 const item = getShift(doctor.id, date.key);
                 return <button key={date.key} className={`shift-cell ${item ? item.type : "empty"}`} onClick={() => openShift(doctor, date)}>

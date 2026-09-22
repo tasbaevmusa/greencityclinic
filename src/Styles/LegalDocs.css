@@ -10,7 +10,7 @@
 /* Title */
 .legal-siteTitle a {
     text-decoration: none;
-    color: #1A8EFD;
+    color: var(--brand-green);
     font-size: 48px;
     letter-spacing: .8px;
 }
@@ -21,7 +21,7 @@
     text-align: center;
     font-family: 'Poppins', sans-serif;
 }
-.legal-kicker { margin: 0; color: #198754; font-size: 12px; font-weight: 800; letter-spacing: 1.5px; }
+.legal-kicker { margin: 0; color: var(--brand-green); font-size: 12px; font-weight: 800; letter-spacing: 1.5px; }
 .legal-page-heading { margin: 7px 0 30px; color: #17352a; font-size: 38px; line-height: 1.2; }
 .legal-siteSign{
     color: #54de54;
@@ -63,7 +63,7 @@
 }
 .legal-footer p { margin: 0 0 4px; }
 .legal-footer .legal-developer { color: #5f7067; font-weight: 500; }
-.legal-footer a { display: inline-block; margin-top: 12px; color: #198754; text-decoration: none; }
+.legal-footer a { display: inline-block; margin-top: 12px; color: var(--brand-green); text-decoration: none; }
 /* Responsive */
 @media screen and (max-width: 600px) {
     .legal-section {

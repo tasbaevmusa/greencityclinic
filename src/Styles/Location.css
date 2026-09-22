@@ -1,11 +1,11 @@
 .location-section {
   width: 100%;
   padding: 76px 0 82px;
-  background: #f1f4f6;
+  background: var(--brand-surface);
 }
 
 .location-container { width: min(1090px, calc(100% - 40px)); margin: 0 auto; }
-.location-container > h2 { margin: 0 0 40px; color: #202b3c; font-size: 32px; font-weight: 800; letter-spacing: -.025em; }
+.location-container > h2 { margin: 0 0 40px; color: var(--brand-ink); font-size: 32px; font-weight: 800; letter-spacing: -.025em; }
 
 .location-content {
   display: grid;
@@ -17,17 +17,17 @@
 .location-map {
   min-height: 320px;
   background: #fff;
-  border: 1px solid #e0e7e9;
+  border: 1px solid var(--brand-border);
   border-radius: 15px;
   box-shadow: 0 4px 12px rgba(35, 55, 67, .08);
 }
 
 .location-info { padding: 31px 32px; display: flex; flex-direction: column; justify-content: center; }
-.contact-row { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 18px; color: #7b8998; font-size: 15px; line-height: 1.55; }
-.contact-row svg { width: 19px; height: 19px; margin-top: 2px; flex: 0 0 19px; color: #198754; stroke-width: 2.2; }
-.contact-row a { color: #198754; font-weight: 750; text-decoration: none; }
+.contact-row { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 18px; color: var(--brand-muted); font-size: 15px; line-height: 1.55; }
+.contact-row svg { width: 19px; height: 19px; margin-top: 2px; flex: 0 0 19px; color: var(--brand-green); stroke-width: 2.2; }
+.contact-row a { color: var(--brand-green); font-weight: 750; text-decoration: none; }
 .contact-row a:hover { color: #146c43; }
-.contact-row .contact-plain { color: #7b8998; font-weight: 500; }
+.contact-row .contact-plain { color: var(--brand-muted); font-weight: 500; }
 
 .location-map-button {
   min-height: 45px;
@@ -38,7 +38,7 @@
   align-items: center;
   gap: 8px;
   color: #fff;
-  background: #198754;
+  background: var(--brand-green);
   border-radius: 7px;
   font-size: 13px;
   font-weight: 750;
@@ -58,9 +58,9 @@
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  color: #198754;
+  color: var(--brand-green);
   background: rgba(255,255,255,.96);
-  border: 1px solid #dce6e8;
+  border: 1px solid var(--brand-border);
   border-radius: 7px;
   box-shadow: 0 4px 12px rgba(31,49,60,.13);
   font-size: 12px;

@@ -1,14 +1,14 @@
 .symbols-page { color: #253d38; background: #fff; }
 .symbols-container { width: min(1060px, calc(100% - 48px)); margin: 0 auto; }
 .symbols-heading { padding: 64px 0 32px; }
-.symbols-eyebrow { margin: 0 0 16px; color: #087f7d; font-size: 11px; font-weight: 700; letter-spacing: .14em; }
+.symbols-eyebrow { margin: 0 0 16px; color: var(--brand-green); font-size: 11px; font-weight: 700; letter-spacing: .14em; }
 .symbols-heading h1 { margin: 0; font-size: clamp(30px, 4vw, 44px); font-weight: 600; line-height: 1.2; letter-spacing: -.025em; }
 .symbols-intro { max-width: 670px; margin: 20px 0 0; color: #65736f; font-size: 16px; line-height: 1.75; }
 .symbols-day { margin: 24px 0 0; color: #65736f; font-size: 13px; line-height: 1.6; }
 .symbols-jump { display: flex; gap: 32px; border-bottom: 1px solid #e3e9e7; }
 .symbols-jump a { display: block; padding: 16px 0; color: #36554e; font-size: 14px; text-decoration: none; border-bottom: 2px solid transparent; }
-.symbols-jump a:hover { color: #087f7d; border-bottom-color: #087f7d; }
-.symbols-page a:focus-visible { outline: 2px solid #087f7d; outline-offset: 5px; }
+.symbols-jump a:hover { color: var(--brand-green); border-bottom-color: var(--brand-green); }
+.symbols-page a:focus-visible { outline: 2px solid var(--brand-green); outline-offset: 5px; }
 .symbols-content { padding-bottom: 64px; }
 .symbol-section { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); align-items: center; gap: 64px; padding: 56px 0; border-bottom: 1px solid #e3e9e7; scroll-margin-top: 24px; }
 .symbol-visual { display: flex; justify-content: center; align-items: center; }
@@ -22,7 +22,7 @@
 .anthem-heading { align-self: start; padding-top: 4px; }
 .anthem-heading > span { font-size: 12px; color: #65736f; }
 .anthem-heading > p { margin: 12px 0 22px; color: #253d38; font-size: 28px; font-weight: 500; line-height: 1.35; }
-.anthem-heading a, .symbols-source { display: inline-flex; align-items: center; gap: 8px; color: #087f7d; font-size: 13px; line-height: 1.6; text-underline-offset: 4px; }
+.anthem-heading a, .symbols-source { display: inline-flex; align-items: center; gap: 8px; color: var(--brand-green); font-size: 13px; line-height: 1.6; text-underline-offset: 4px; }
 .symbols-source { margin-top: 28px; color: #65736f; }
 @media (max-width: 720px) {
   .symbols-container { width: calc(100% - 40px); }

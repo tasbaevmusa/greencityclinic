@@ -101,7 +101,7 @@
 }
 .faq-toggle { flex-shrink: 0; margin-left: auto; color: #23804d; transition: transform .2s; }
 .is-open .faq-toggle { transform: rotate(45deg); }
-.is-open .faq-number { background: #198754; color: #fff; }
+.is-open .faq-number { background: var(--brand-green); color: #fff; }
 .faq-item p { margin: 0; padding: 0 26px 24px 71px; color: #647869; font-size: 14px; line-height: 1.8; }
 .faq-more {
   display: inline-flex;
