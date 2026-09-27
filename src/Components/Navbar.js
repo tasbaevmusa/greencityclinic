@@ -36,6 +36,7 @@ function Navbar() {
     [t.aboutMenu.vision, "/about/vision"],
     [t.aboutMenu.mission, "/about/mission"],
     [t.aboutMenu.achievements, "/about/achievements"],
+    [language === "kk" ? "Этикалық кодекс" : "Этический кодекс", "/about/ethical-code"],
     [t.aboutMenu.vacancies, "/vacancies"],
     [t.aboutMenu.schedule, "/doctors-schedule"],
     [language === "kk" ? "Құқықтық ақпарат" : "Правовая информация", "/legal"],
@@ -44,8 +45,8 @@ function Navbar() {
   ];
   const servicesMenu = [[t.priceList, "/services/price-list"]];
   const patientMenu = language === "kk"
-    ? [["Емханаға тіркелу", "/patients/attachment"], ["Тіркелу", "/appointment"], ["Денсаулық мектебі", "/patients/health-school"], ["Вакцинация", "/patients/vaccination"], ["Скринингтер", "/patients/screenings"], ["ҚҰЖАТТАР", null], ["Сұрақ-жауап", "/#faq"]]
-    : [["Прикрепление к поликлинике", "/patients/attachment"], ["Прикрепиться", "/appointment"], ["Школа здоровья", "/patients/health-school"], ["Вакцинация", "/patients/vaccination"], ["Скрининги", "/patients/screenings"], ["ДОКУМЕНТЫ", null], ["Вопрос-ответ", "/#faq"]];
+    ? [["Емханаға тіркелу", "/patients/attachment"], ["Тіркелу", "/appointment"], ["Денсаулық мектебі", "/patients/health-school"], ["Вакцинация", "/patients/vaccination"], ["Скринингтер", "/patients/screenings"], ["Алғашқы медициналық-санитариялық көмек көрсету тәртібі", "/patients/primary-care-procedure"], ["ҚҰЖАТТАР", null], ["Сұрақ-жауап", "/#faq"]]
+    : [["Прикрепление к поликлинике", "/patients/attachment"], ["Прикрепиться", "/appointment"], ["Школа здоровья", "/patients/health-school"], ["Вакцинация", "/patients/vaccination"], ["Скрининги", "/patients/screenings"], ["Порядок оказания первичной медико-санитарной помощи", "/patients/primary-care-procedure"], ["ДОКУМЕНТЫ", null], ["Вопрос-ответ", "/#faq"]];
   const dropdowns = { about: aboutMenu, services: servicesMenu, patients: patientMenu };
   const whatsappUrl = "https://wa.me/77075340824";
   const renderMenuLink = ([label, to]) => !to
