@@ -23,6 +23,7 @@ CREATE TABLE IF NOT EXISTS doctor_schedules (
 );
 CREATE INDEX IF NOT EXISTS idx_schedules_work_date ON doctor_schedules(work_date);
 ALTER TABLE doctors ALTER COLUMN whatsapp SET DEFAULT '';
+ALTER TABLE doctors ADD COLUMN IF NOT EXISTS room TEXT NOT NULL DEFAULT '';
 
 -- Initial clinic staff. Descriptions and photos can be filled in later from
 -- the admin panel. The name check keeps this seed idempotent for existing

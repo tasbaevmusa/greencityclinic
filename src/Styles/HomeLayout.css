@@ -6,7 +6,18 @@
   --section-title-size: clamp(26px, 3vw, 34px);
   font-size: 16px;
   line-height: 1.6;
+  max-width: 1480px;
+  margin-inline: auto;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 0 55px rgba(20, 62, 42, .12);
 }
+
+.home-band { display: flow-root; }
+.home-band-green { background: #eff7f1; }
+.home-band-white { background: #fff; }
+.home-band > :first-child { background: transparent !important; }
+.home-band .clinic-gallery { margin-top: 0; margin-bottom: 0; padding-top: var(--section-space); padding-bottom: var(--section-space); }
 
 .home-section :is(.header-container, .mobile-menu-inner, .hero-container, .services-section, .doctors-slider-heading,
   .doctors-slider, .chief-container, .popular-services__container, .news-container,
@@ -91,3 +102,13 @@
   .home-section .service-card { min-height: 88px; padding: 16px; }
   .home-section .popular-service-card { min-height: 280px; }
 }
+
+/* Full-width alternating page bands with a subtle clinic logo pattern. */
+.home-section{max-width:none;margin:0;overflow:visible;box-shadow:none;background:#fff}
+.home-band{position:relative;isolation:isolate;overflow:hidden}
+.home-band:before{content:"";position:absolute;z-index:0;inset:0;background-image:url("../Assets/brand-watermark.png");background-repeat:repeat;background-position:34px 28px;background-size:140px 140px;opacity:.022;pointer-events:none}
+.home-band-green{background:#edf6ef}
+.home-band-green:before{opacity:.032}
+.home-band-white{background:#fff}
+.home-band>*{position:relative;z-index:1}
+@media(max-width:650px){.home-band:before{background-size:105px 105px;background-position:18px 18px;opacity:.016}.home-band-green:before{opacity:.024}}

@@ -29,6 +29,10 @@ const content = {
 function Hero() {
   const { language } = useLanguage();
   const copy = content[language] || content.ru;
+  const attachmentMessage = language === "kk"
+    ? "Сәлеметсіз бе! NARAMED клиникасына тіркелгім келеді. Кеңес бере аласыз ба?"
+    : "Здравствуйте! Я хочу прикрепиться к клинике НАРАМЕД. Подскажите, пожалуйста, порядок прикрепления.";
+  const attachmentWhatsApp = `https://wa.me/77075340824?text=${encodeURIComponent(attachmentMessage)}`;
 
   return (
     <section className="hero-container" aria-labelledby="hero-title">
@@ -41,7 +45,7 @@ function Hero() {
           <Link className="hero-secondary" to="/#doctors"><Stethoscope size={19} />{copy.doctor}</Link>
         </div>
         <div className="hero-quick-links">
-          <Link to="/appointment">{copy.attachment}<ArrowRight size={14} /></Link>
+          <a href={attachmentWhatsApp} target="_blank" rel="noopener noreferrer">{copy.attachment}<ArrowRight size={14} /></a>
           <Link to="/doctors-schedule">{copy.schedule}<ArrowRight size={14} /></Link>
         </div>
       </div>

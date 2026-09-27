@@ -8,6 +8,7 @@ type Doctor struct {
 	Position    string    `json:"position"`
 	Description string    `json:"description"`
 	Image       string    `json:"image"`
+	Room        string    `json:"room"`
 	CreatedAt   time.Time `json:"created_at"`
 	UpdatedAt   time.Time `json:"updated_at"`
 }

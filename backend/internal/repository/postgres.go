@@ -21,7 +21,7 @@ func mapError(err error) error {
 	return err
 }
 func (p *Postgres) ListDoctors(ctx context.Context) ([]model.Doctor, error) {
-	rows, err := p.db.Query(ctx, `SELECT id, name, position, description, image, created_at, updated_at FROM doctors ORDER BY created_at`)
+	rows, err := p.db.Query(ctx, `SELECT id, name, position, description, image, room, created_at, updated_at FROM doctors ORDER BY created_at`)
 	if err != nil {
 		return nil, err
 	}
@@ -29,7 +29,7 @@ func (p *Postgres) ListDoctors(ctx context.Context) ([]model.Doctor, error) {
 	items := []model.Doctor{}
 	for rows.Next() {
 		var d model.Doctor
-		if err := rows.Scan(&d.ID, &d.Name, &d.Position, &d.Description, &d.Image, &d.CreatedAt, &d.UpdatedAt); err != nil {
+		if err := rows.Scan(&d.ID, &d.Name, &d.Position, &d.Description, &d.Image, &d.Room, &d.CreatedAt, &d.UpdatedAt); err != nil {
 			return nil, err
 		}
 		items = append(items, d)
@@ -38,22 +38,23 @@ func (p *Postgres) ListDoctors(ctx context.Context) ([]model.Doctor, error) {
 }
 func (p *Postgres) GetDoctor(ctx context.Context, id string) (model.Doctor, error) {
 	var d model.Doctor
-	err := p.db.QueryRow(ctx, `SELECT id, name, position, description, image, created_at, updated_at FROM doctors WHERE id=$1`, id).Scan(&d.ID, &d.Name, &d.Position, &d.Description, &d.Image, &d.CreatedAt, &d.UpdatedAt)
+	err := p.db.QueryRow(ctx, `SELECT id, name, position, description, image, room, created_at, updated_at FROM doctors WHERE id=$1`, id).Scan(&d.ID, &d.Name, &d.Position, &d.Description, &d.Image, &d.Room, &d.CreatedAt, &d.UpdatedAt)
 	return d, mapError(err)
 }
 func normalize(d *model.Doctor) {
 	d.Name = strings.TrimSpace(d.Name)
 	d.Position = strings.TrimSpace(d.Position)
 	d.Description = strings.TrimSpace(d.Description)
+	d.Room = strings.TrimSpace(d.Room)
 }
 func (p *Postgres) CreateDoctor(ctx context.Context, d model.Doctor) (model.Doctor, error) {
 	normalize(&d)
-	err := p.db.QueryRow(ctx, `INSERT INTO doctors (name, position, description, image) VALUES ($1,$2,$3,$4) RETURNING id, created_at, updated_at`, d.Name, d.Position, d.Description, d.Image).Scan(&d.ID, &d.CreatedAt, &d.UpdatedAt)
+	err := p.db.QueryRow(ctx, `INSERT INTO doctors (name, position, description, image, room) VALUES ($1,$2,$3,$4,$5) RETURNING id, created_at, updated_at`, d.Name, d.Position, d.Description, d.Image, d.Room).Scan(&d.ID, &d.CreatedAt, &d.UpdatedAt)
 	return d, err
 }
 func (p *Postgres) UpdateDoctor(ctx context.Context, id string, d model.Doctor) (model.Doctor, error) {
 	normalize(&d)
-	err := p.db.QueryRow(ctx, `UPDATE doctors SET name=$1, position=$2, description=$3, image=$4, updated_at=NOW() WHERE id=$5 RETURNING id, created_at, updated_at`, d.Name, d.Position, d.Description, d.Image, id).Scan(&d.ID, &d.CreatedAt, &d.UpdatedAt)
+	err := p.db.QueryRow(ctx, `UPDATE doctors SET name=$1, position=$2, description=$3, image=$4, room=$5, updated_at=NOW() WHERE id=$6 RETURNING id, created_at, updated_at`, d.Name, d.Position, d.Description, d.Image, d.Room, id).Scan(&d.ID, &d.CreatedAt, &d.UpdatedAt)
 	return d, mapError(err)
 }
 func (p *Postgres) DeleteDoctor(ctx context.Context, id string) error {

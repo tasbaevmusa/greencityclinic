@@ -22,6 +22,9 @@ import ServiceDetail from "./Pages/ServiceDetail";
 import DoctorsSchedule from "./Pages/DoctorsSchedule";
 import PatientDetail from "./Pages/PatientDetail";
 import StateSymbols from "./Pages/StateSymbols";
+import TvSchedule from "./Pages/TvSchedule";
+import RegulatoryFramework from "./Pages/RegulatoryFramework";
+import AboutClinic from "./Pages/AboutClinic";
 
 import AdminDashboard from "./Pages/AdminDashboard";
 import AdminPlaceholder from "./Pages/AdminPlaceholder";
@@ -60,7 +63,10 @@ function App() {
                 <Route path="/appointment" element={<Appointment />} />
                 <Route path="/doctors/:id" element={<DoctorDetails />} />
                 <Route path="/doctors-schedule" element={<DoctorsSchedule />} />
+                <Route path="/tv-schedule" element={<TvSchedule />} />
                 <Route path="/about/:section" element={<AboutDetail />} />
+                <Route path="/about/regulatory-framework" element={<RegulatoryFramework />} />
+                <Route path="/about/clinic" element={<AboutClinic />} />
                 <Route path="/vacancies" element={<Vacancies />} />
                 <Route path="/services/price-list" element={<PriceList />} />
                 <Route path="/services/:slug" element={<ServiceDetail />} />

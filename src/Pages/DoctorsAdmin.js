@@ -5,7 +5,7 @@ import { useDoctors } from "../data/DoctorsContext";
 import { schedulesApi } from "../services/api";
 import "../Styles/DoctorsAdmin.css";
 
-const initialForm = { name: "", position: "", description: "", image: "" };
+const initialForm = { name: "", position: "", room: "", description: "", image: "" };
 const weekDays = [
   ["mon", "Пн", "Понедельник"],
   ["tue", "Вт", "Вторник"],
@@ -177,12 +177,13 @@ function DoctorsAdmin() {
         <h2>{form.id ? "Редактировать врача" : "Добавить врача"}</h2>
         <label>Имя и фамилия<input name="name" value={form.name} onChange={handleChange} required /></label>
         <label>Специальность<input name="position" value={form.position} onChange={handleChange} required /></label>
+        <label>Кабинет<input name="room" value={form.room || ""} onChange={handleChange} placeholder="Например: 203" /></label>
         <label>Описание<textarea name="description" value={form.description} onChange={handleChange} rows="5" /></label>
         <label>Фото<input type="file" accept="image/*" onChange={handleImageChange} /></label>
         {form.image && <img className="form-preview" src={form.image} alt="Предпросмотр" />}
         <div className="form-actions"><button type="submit"><Check size={17}/> Сохранить</button>{form.id && <button type="button" onClick={() => setForm(initialForm)} className="cancel">Отмена</button>}</div>
       </form>
-      <div className="admin-doctors">{doctors.map((doctor) => <article key={doctor.id}><img src={doctor.image} alt="" /><div><h3>{doctor.name}</h3><p>{doctor.position}</p><button type="button" onClick={() => setForm(doctor)}>Изменить</button><button type="button" onClick={() => handleDeleteDoctor(doctor.id)} className="delete">Удалить</button></div></article>)}</div>
+      <div className="admin-doctors">{doctors.map((doctor) => <article key={doctor.id}><img src={doctor.image} alt="" /><div><h3>{doctor.name}</h3><p>{doctor.position}{doctor.room ? ` · Кабинет ${doctor.room}` : ""}</p><button type="button" onClick={() => setForm(doctor)}>Изменить</button><button type="button" onClick={() => handleDeleteDoctor(doctor.id)} className="delete">Удалить</button></div></article>)}</div>
     </div>}
 
     {editing && <div className="shift-overlay" onMouseDown={(e) => e.target === e.currentTarget && setEditing(null)}>

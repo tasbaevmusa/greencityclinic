@@ -23,7 +23,7 @@ function Navbar() {
 
   const menu = [
     ["home", "/"],
-    ["about", "/about/vision"],
+    ["about", "/about/clinic"],
     ["doctors", "/#doctors"],
     ["services", "/#services"],
     ["patients", "/patients/attachment"],
@@ -32,13 +32,17 @@ function Navbar() {
     ["contact", "/#contact"],
   ];
   const aboutMenu = [
+    [language === "kk" ? "NARAMED клиникасы туралы" : "О клинике NARAMED", "/about/clinic"],
     [language === "kk" ? "Мемлекеттік рәміздер" : "Государственные символы", "/state-symbols"],
     [t.aboutMenu.vision, "/about/vision"],
     [t.aboutMenu.mission, "/about/mission"],
     [t.aboutMenu.achievements, "/about/achievements"],
+    [language === "kk" ? "Нормативтік-құқықтық база" : "Нормативно-правовая база", "/about/regulatory-framework"],
     [language === "kk" ? "Этикалық кодекс" : "Этический кодекс", "/about/ethical-code"],
+    [language === "kk" ? "Сыбайлас жемқорлыққа қарсы комплаенс-қызметі" : "Антикоррупционная комплаенс-служба", "/about/anticorruption-compliance"],
     [t.aboutMenu.vacancies, "/vacancies"],
     [t.aboutMenu.schedule, "/doctors-schedule"],
+    [language === "kk" ? "Теледидарға арналған кесте" : "График для ТВ", "/tv-schedule"],
     [language === "kk" ? "Құқықтық ақпарат" : "Правовая информация", "/legal"],
     [t.nav.news, "/#news"],
     [t.nav.contact, "/#contact"],

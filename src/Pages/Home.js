@@ -1,9 +1,9 @@
 import React from "react";
 import Navbar from "../Components/Navbar";
 import Hero from "../Components/Hero";
+import ClinicGallery from "../Components/ClinicGallery";
 import Location from "../Components/Location";
 
-import Info from "../Components/Info";
 import Reviews from "../Components/Reviews";
 import News from "../Components/News";
 import DoctorsSlider from "../Components/DoctorsSlider";
@@ -16,15 +16,15 @@ function Home() {
   return (
     <div className="home-section">
       <Navbar />
-      <Hero />
-      <Info />
-      <DoctorsSlider />
-      <ChiefDoctor />
-      <PopularServices />
-      <News />
-      <Reviews />
-      <FAQ />
-      <Location />
+      <div className="home-band home-band-green"><Hero /></div>
+      <div className="home-band home-band-white"><ClinicGallery /></div>
+      <div className="home-band home-band-green"><DoctorsSlider /></div>
+      <div className="home-band home-band-white"><ChiefDoctor /></div>
+      <div className="home-band home-band-green"><PopularServices /></div>
+      <div className="home-band home-band-white"><News /></div>
+      <div className="home-band home-band-green"><Reviews /></div>
+      <div className="home-band home-band-white"><FAQ /></div>
+      <div className="home-band home-band-green"><Location /></div>
       <Footer />
     </div>
   );

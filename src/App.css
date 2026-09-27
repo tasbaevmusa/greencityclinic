@@ -199,3 +199,8 @@ html.a11y-enabled[data-a11y-contrast="yellow"] a{color:#001a8d!important}
 html.a11y-hide-images img{visibility:hidden!important}
 html.a11y-hide-images [style*="background-image"]{background-image:none!important}
 @media(max-width:576px){.accessibility-trigger{left:12px;bottom:12px;padding:11px}.accessibility-trigger span{display:none}.accessibility-panel{left:12px;bottom:66px;width:calc(100vw - 24px);max-height:calc(100vh - 84px);overflow:auto}}
+
+/* Section components provide the alternating public-page background. */
+body{background:#fff}
+body::before,body::after{display:none}
+#root,.App{position:relative;z-index:1}

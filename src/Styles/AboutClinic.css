@@ -1,0 +1,61 @@
+.about-clinic-page{min-height:100vh;background:#fff;color:#19372c}
+.about-clinic-page main{width:min(1120px,calc(100% - 40px));margin:0 auto;padding:64px 0 90px}
+.about-clinic-hero{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:64px}
+.about-clinic-eyebrow{display:flex;align-items:center;gap:8px;color:#27825a;font-size:11px;font-weight:800;letter-spacing:.14em}
+.about-clinic-eyebrow svg{width:17px}
+.about-clinic-copy h1{max-width:570px;margin:17px 0 20px;font-size:clamp(36px,4.5vw,58px);line-height:1.08;letter-spacing:-.045em;font-weight:700}
+.about-clinic-copy>p{max-width:580px;margin:0;color:#67766e;font-size:16px;line-height:1.75}
+.about-clinic-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.about-clinic-actions a{display:flex;align-items:center;gap:8px;padding:11px 16px;color:#fff;background:#247c55;border:1px solid #247c55;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none}
+.about-clinic-actions a.secondary{color:#296c4d;background:#fff;border-color:#ccdcd3}
+.about-clinic-actions svg{width:17px}
+.about-clinic-photo{position:relative;overflow:hidden;aspect-ratio:4/3;border-radius:14px;background:#eef4f0}
+.about-clinic-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+.about-clinic-photo>span{position:absolute;left:16px;bottom:16px;display:flex;align-items:center;gap:7px;padding:8px 11px;color:#244d3a;background:#fffffff2;border-radius:7px;font-size:13px;font-weight:700}
+.about-clinic-photo>span svg{width:16px}
+.about-clinic-stats{display:grid;grid-template-columns:repeat(4,1fr);margin:64px 0 0;border-top:1px solid #dce6e0;border-bottom:1px solid #dce6e0}
+.about-clinic-stats article{display:grid;gap:4px;padding:26px 18px;text-align:center;border-right:1px solid #e1e9e4}
+.about-clinic-stats article:last-child{border:0}
+.about-clinic-stats strong{color:#236f4d;font-size:32px;font-weight:650}
+.about-clinic-stats span{color:#78877f;font-size:12px}
+.about-clinic-mission{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start;padding:82px 0;border-bottom:1px solid #e1e9e4}
+.about-clinic-mission span,.about-clinic-values header span,.about-clinic-directions header span{color:#27825a;font-size:10px;font-weight:800;letter-spacing:.14em}
+.about-clinic-mission h2,.about-clinic-values h2,.about-clinic-directions h2{margin:11px 0 0;font-size:clamp(28px,3.4vw,42px);line-height:1.2;letter-spacing:-.035em;font-weight:650}
+.about-clinic-mission>p{margin:25px 0 0;color:#65766d;font-size:16px;line-height:1.8}
+.about-clinic-values{padding:80px 0;border-bottom:1px solid #e1e9e4}
+.about-clinic-values header,.about-clinic-directions header{max-width:540px}
+.about-clinic-values>div{display:grid;grid-template-columns:1fr 1fr;gap:0 50px;margin-top:34px}
+.about-clinic-values article{display:grid;grid-template-columns:40px 1fr;column-gap:14px;padding:22px 0;border-top:1px solid #e1e9e4}
+.about-clinic-values i{grid-row:1/3;display:grid;width:40px;height:40px;place-items:center;color:#257b55;background:#edf5f0;border-radius:8px}
+.about-clinic-values i svg{width:21px}
+.about-clinic-values h3{margin:1px 0 7px;font-size:17px;font-weight:700}
+.about-clinic-values p{margin:0;color:#6b7a72;line-height:1.6;font-size:14px}
+.about-clinic-directions{padding:80px 0}
+.about-clinic-directions>div{display:grid;grid-template-columns:1fr 1fr;gap:0 50px;margin-top:34px}
+.about-clinic-directions article{display:flex;align-items:center;gap:15px;padding:18px 0;border-top:1px solid #e1e9e4}
+.about-clinic-directions article b{color:#9aa7a0;font-size:11px;font-weight:700}
+.about-clinic-directions article span{font-size:15px;font-weight:650}
+.about-clinic-location{display:grid;grid-template-columns:1fr 1fr auto;align-items:center;gap:25px;padding:24px 0;border-top:1px solid #dce6e0;border-bottom:1px solid #dce6e0}
+.about-clinic-location>div{display:flex;align-items:center;gap:11px;color:#315b47}
+.about-clinic-location>div>svg{width:22px}
+.about-clinic-location span{display:grid;gap:3px}
+.about-clinic-location small{color:#7c8b83}
+.about-clinic-location a{display:flex;align-items:center;gap:7px;padding:10px 13px;color:#236f4d;border:1px solid #c9dbd1;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none}
+.about-clinic-location a svg{width:16px}
+@media(max-width:850px){.about-clinic-hero{grid-template-columns:1fr;gap:36px}.about-clinic-copy{max-width:680px}.about-clinic-photo{width:100%;max-width:680px}.about-clinic-location{grid-template-columns:1fr 1fr}.about-clinic-location a{grid-column:1/-1;justify-self:start}}
+@media(max-width:620px){.about-clinic-page main{width:calc(100% - 28px);padding:38px 0 60px}.about-clinic-copy h1{font-size:36px}.about-clinic-photo{border-radius:10px}.about-clinic-stats{grid-template-columns:1fr 1fr;margin-top:45px}.about-clinic-stats article:nth-child(2){border-right:0}.about-clinic-stats article{padding:20px 10px;border-bottom:1px solid #e1e9e4}.about-clinic-mission{grid-template-columns:1fr;gap:20px;padding:55px 0}.about-clinic-mission>p{margin:0}.about-clinic-values,.about-clinic-directions{padding:55px 0}.about-clinic-values>div,.about-clinic-directions>div{grid-template-columns:1fr}.about-clinic-location{grid-template-columns:1fr;padding:22px 0}.about-clinic-location a{grid-column:auto}.about-clinic-actions{align-items:stretch;flex-direction:column}.about-clinic-actions a{justify-content:center}}
+
+/* Alternating clinic-brand backgrounds with a quiet logo watermark. */
+.about-clinic-hero,.about-clinic-stats,.about-clinic-mission,.about-clinic-values,.about-clinic-directions,.about-clinic-location{position:relative;isolation:isolate;overflow:hidden;border-radius:16px}
+.about-clinic-hero:before,.about-clinic-stats:before,.about-clinic-mission:before,.about-clinic-values:before,.about-clinic-directions:before,.about-clinic-location:before{content:"";position:absolute;z-index:-1;inset:0;background-image:url("../Assets/brand-watermark.png");background-repeat:repeat;background-position:22px 18px;background-size:125px 125px;opacity:.026;pointer-events:none}
+.about-clinic-hero>* ,.about-clinic-stats>* ,.about-clinic-mission>* ,.about-clinic-values>* ,.about-clinic-directions>* ,.about-clinic-location>*{position:relative;z-index:1}
+.about-clinic-hero{padding:42px;background:#eef7f1}
+.about-clinic-stats{margin:20px 0 0;background:#fff}
+.about-clinic-mission{margin-top:20px;padding:62px 48px;background:#f1f8f3;border:0}
+.about-clinic-values{margin-top:20px;padding:62px 48px;background:#fff;border:1px solid #e1e9e4}
+.about-clinic-directions{margin-top:20px;padding:62px 48px;background:#f1f8f3}
+.about-clinic-location{margin-top:20px;padding:28px 32px;background:#fff}
+@media(max-width:850px){.about-clinic-hero{padding:32px}.about-clinic-mission{padding:50px 34px}.about-clinic-values,.about-clinic-directions{padding:50px 34px}}
+@media(max-width:620px){.about-clinic-hero{padding:22px}.about-clinic-stats{margin-top:14px}.about-clinic-mission,.about-clinic-values,.about-clinic-directions{margin-top:14px;padding:38px 20px}.about-clinic-location{margin-top:14px;padding:24px 20px}.about-clinic-hero:before,.about-clinic-stats:before,.about-clinic-mission:before,.about-clinic-values:before,.about-clinic-directions:before,.about-clinic-location:before{background-size:96px 96px;opacity:.022}}
+
+.about-clinic-hero:before,.about-clinic-stats:before,.about-clinic-mission:before,.about-clinic-values:before,.about-clinic-directions:before,.about-clinic-location:before{display:block}
