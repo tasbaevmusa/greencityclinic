@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/greencityclinic/static/css/main.0d84cae4.css",
+    "main.js": "/greencityclinic/static/js/main.55db00da.js",
+    "static/media/naramed-facade.png": "/greencityclinic/static/media/naramed-facade.f352dfcbd37f15159316.png",
+    "static/media/naramed-entrance.png": "/greencityclinic/static/media/naramed-entrance.bace21559db5d1da8792.png",
+    "static/media/clinic-hero.png": "/greencityclinic/static/media/clinic-hero.e67662ca42a5d9507921.png",
+    "static/media/service-vaccination.png": "/greencityclinic/static/media/service-vaccination.98f36ae96264969e5d75.png",
+    "static/media/service-womens-health.png": "/greencityclinic/static/media/service-womens-health.a71d3e8412a37709d28b.png",
+    "static/media/service-pediatrics.png": "/greencityclinic/static/media/service-pediatrics.4e03cf309c83b8edbdd7.png",
+    "static/media/service-general-practice.png": "/greencityclinic/static/media/service-general-practice.ab49fd9ad1bbd34e98d7.png",
+    "static/media/service-laboratory.png": "/greencityclinic/static/media/service-laboratory.044a2edce92f6ed72b71.png",
+    "static/media/service-ultrasound.png": "/greencityclinic/static/media/service-ultrasound.455e4a7de6e5bc295835.png",
+    "static/media/naramed-reception.png": "/greencityclinic/static/media/naramed-reception.f29340affa2523eb819d.png",
+    "static/media/chief-doctor.png": "/greencityclinic/static/media/chief-doctor.4a07836e4c5e6a8d220e.png",
+    "static/media/naramed-waiting-area.png": "/greencityclinic/static/media/naramed-waiting-area.8df38b5c425586156e1a.png",
+    "static/media/naramed-consultation.png": "/greencityclinic/static/media/naramed-consultation.ab065cc35b6a75efd440.png",
+    "static/media/logo.png": "/greencityclinic/static/media/logo.a6f34dd83ae9ef55f780.png",
+    "static/media/kazakhstan-emblem.jpg": "/greencityclinic/static/media/kazakhstan-emblem.e0e40776ed1d5a2f63e7.jpg",
+    "static/media/brand-watermark.png": "/greencityclinic/static/media/brand-watermark.a5b08797e0eaa5b0a3b6.png",
+    "static/media/kazakhstan-flag.jpg": "/greencityclinic/static/media/kazakhstan-flag.aa2a815148de274b6215.jpg",
+    "index.html": "/greencityclinic/index.html",
+    "main.0d84cae4.css.map": "/greencityclinic/static/css/main.0d84cae4.css.map",
+    "main.55db00da.js.map": "/greencityclinic/static/js/main.55db00da.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0d84cae4.css",
+    "static/js/main.55db00da.js"
+  ]
+}
