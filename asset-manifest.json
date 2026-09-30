@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/greencityclinic/static/css/main.0d84cae4.css",
-    "main.js": "/greencityclinic/static/js/main.55db00da.js",
+    "main.js": "/greencityclinic/static/js/main.9ee076c3.js",
     "static/media/naramed-facade.png": "/greencityclinic/static/media/naramed-facade.f352dfcbd37f15159316.png",
     "static/media/naramed-entrance.png": "/greencityclinic/static/media/naramed-entrance.bace21559db5d1da8792.png",
     "static/media/clinic-hero.png": "/greencityclinic/static/media/clinic-hero.e67662ca42a5d9507921.png",
@@ -21,10 +21,10 @@
     "static/media/kazakhstan-flag.jpg": "/greencityclinic/static/media/kazakhstan-flag.aa2a815148de274b6215.jpg",
     "index.html": "/greencityclinic/index.html",
     "main.0d84cae4.css.map": "/greencityclinic/static/css/main.0d84cae4.css.map",
-    "main.55db00da.js.map": "/greencityclinic/static/js/main.55db00da.js.map"
+    "main.9ee076c3.js.map": "/greencityclinic/static/js/main.9ee076c3.js.map"
   },
   "entrypoints": [
     "static/css/main.0d84cae4.css",
-    "static/js/main.55db00da.js"
+    "static/js/main.9ee076c3.js"
   ]
 }
