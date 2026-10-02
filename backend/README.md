@@ -18,7 +18,7 @@ internal/
 
 `app` передаёт репозиторий обработчикам через интерфейс `handler.Store`.
 Обработчики используют `service` для проверки данных и `repository` для хранения.
-SQL отсутствует в HTTP-слое; `main.go` не знает о маршрутах и базе данных.
+CRUD-запросы находятся в репозитории. Модуль `auth` проверяет пароли, управляет серверными сессиями и лимитами входа в PostgreSQL. `main.go` не знает о маршрутах и базе данных.
 
 ## Запуск
 
@@ -52,6 +52,22 @@ go run ./cmd/server
 | PUT, DELETE | `/api/doctors/{id}/schedules/{date}` |
 
 Адреса и JSON-поля сохранены для текущего React-клиента.
+
+Все POST/PUT/DELETE врачей и расписания требуют сессию администратора.
+
+| Метод | Путь | Доступ |
+| --- | --- | --- |
+| POST | `/api/auth/login` | Вход с email/password |
+| GET | `/api/auth/me` | Текущая сессия |
+| POST | `/api/auth/logout` | Отзыв cookie-сессии |
+| GET | `/api/content/{kind}` | Публичные записи |
+| GET, POST | `/api/admin/content/{kind}` | Администратор |
+| PUT, DELETE | `/api/admin/content/{kind}/{id}` | Администратор |
+| POST | `/api/admin/content/{kind}/import` | Однократный перенос списка до первой серверной правки |
+
+`kind`: `news`, `reviews`, `vacancies`. Для изменений и входа обязательны разрешённый `Origin` и `X-Requested-With: clinic-admin`. CORS разрешает credentials только перечисленным origin. `COOKIE_SECURE` по умолчанию `true` в Go; локальный Compose явно задаёт `false` для HTTP.
+
+Установка пароля, миграция браузерных записей и запуск проверок в отдельной БД: [ADMIN-SETUP.md](../ADMIN-SETUP.md).
 
 ## Проверки
 

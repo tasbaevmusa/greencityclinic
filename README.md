@@ -1,5 +1,9 @@
 # Health Plus
 
+## Администратор и публикация контента
+
+Настоящий вход администратора, общий контент PostgreSQL, перенос старых записей из браузера и настройки HTTPS описаны в [ADMIN-SETUP.md](ADMIN-SETUP.md).
+
 ## Go API и PostgreSQL
 
 Описание слоёв бэкенда, настроек и тестов: [backend/README.md](backend/README.md).

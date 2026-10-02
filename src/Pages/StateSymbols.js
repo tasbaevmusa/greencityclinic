@@ -8,6 +8,12 @@ import "../Styles/StateSymbols.css";
 import { useLanguage } from "../i18n/LanguageContext";
 
 const copy = {
+  en: {
+    eyebrow: "REPUBLIC OF KAZAKHSTAN", title: "National Symbols", intro: "The Flag, Emblem and Anthem represent our country’s sovereignty, unity, history and future.", day: "June 4 — Day of State Symbols of the Republic of Kazakhstan", nav: ["Flag", "Emblem", "Anthem"],
+    flag: { title: "State Flag", lead: "The sky-blue flag represents peace, prosperity and unity.", text: "At its center is a golden sun with rays, above a soaring steppe eagle. A national ornament runs along the hoist. The flag was designed by distinguished Kazakh artist Shaken Niyazbekov.", facts: ["Adopted in 1992", "Aspect ratio: 1:2", "Blue and gold colors"] },
+    emblem: { title: "State Emblem", lead: "The shanyrak at the center symbolizes a shared home and the unity of the people of Kazakhstan.", text: "Uyk spokes radiate from the shanyrak like rays of the sun. Winged mythical horses stand on either side, with a five-pointed star above and the word “QAZAQSTAN” below. The emblem was designed by architects Zhandarbek Malibekov and Shot-Aman Ualikhanov.", facts: ["Adopted on June 4, 1992", "Circular shape", "Shanyrak, winged horses and a star"] },
+    anthem: { title: "State Anthem", lead: "“Menің Қазақстаным” is a solemn song about the homeland, freedom and the strength of its people.", text: "The current state anthem was adopted on January 6, 2006. The music is by Shamshi Kaldayakov; the lyrics are by Zhumeken Nazhimedenov and Nursultan Nazarbayev.", name: "Менің Қазақстаным", meta: "National Anthem of the Republic of Kazakhstan", etiquette: "When the anthem is performed publicly, it is customary to stand and face the State Flag.", official: "Official Information" },
+  },
   ru: {
     eyebrow: "РЕСПУБЛИКА КАЗАХСТАН",
     title: "Государственные символы",
@@ -57,7 +63,7 @@ function StateSymbols() {
         <section id="symbol-3" className="symbol-section" aria-labelledby="anthem-title">
           <div className="anthem-heading">
             <span>{c.nav[2]}</span><p lang="kk">{c.anthem.name}</p>
-            <a href="https://www.akorda.kz/ru/state_symbols/kazakhstan_anthem" target="_blank" rel="noreferrer">{language === "kk" ? "Әнұранның ресми беті" : "Официальная страница гимна"}<ExternalLink size={14} /></a>
+            <a href="https://www.akorda.kz/ru/state_symbols/kazakhstan_anthem" target="_blank" rel="noreferrer">{language === "kk" ? "Әнұранның ресми беті" : language === "en" ? "Official anthem page" : "Официальная страница гимна"}<ExternalLink size={14} /></a>
           </div>
           <SymbolCopy id="anthem-title" data={c.anthem} />
         </section>

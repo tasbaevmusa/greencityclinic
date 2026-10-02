@@ -10,7 +10,7 @@ function LoginPage() {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
-  const { login, isAuthenticated, isLoading, user } = useAuth();
+  const { login, isAuthenticated, isLoading, sessionError, user } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -53,7 +53,7 @@ function LoginPage() {
           <span>Введите данные администратора для продолжения.</span>
         </div>
 
-        {error && <div className="auth-error" role="alert">{error}</div>}
+        {(error || sessionError) && <div className="auth-error" role="alert">{error || sessionError}</div>}
 
         <label>
           Email
@@ -100,15 +100,6 @@ function LoginPage() {
           {isLoading ? "Выполняется вход…" : "Войти"}
         </button>
 
-        <button
-          className="auth-demo"
-          type="button"
-          onClick={() => { setEmail("admin@naramed.kz"); setPassword("Admin123!"); setError(""); }}
-        >
-          <span>Заполнить данные администратора</span>
-          <code>admin@naramed.kz</code>
-          <code>Admin123!</code>
-        </button>
       </form>
     </main>
   );

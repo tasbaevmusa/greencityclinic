@@ -2,8 +2,10 @@ package handler
 
 import (
 	"context"
+	"health-plus/backend/internal/auth"
 	"health-plus/backend/internal/model"
 	"health-plus/backend/internal/repository"
+	"net/http"
 	"net/http/httptest"
 	"strings"
 	"testing"
@@ -17,7 +19,7 @@ func (stubStore) GetDoctor(context.Context, string) (model.Doctor, error) {
 }
 
 func TestHTTPContract(t *testing.T) {
-	routes := New(stubStore{}).Routes()
+	routes := New(stubStore{}, WithAuth(testAuth{})).Routes()
 	for _, tc := range []struct {
 		method, path, body string
 		status             int
@@ -39,5 +41,30 @@ func TestHTTPContract(t *testing.T) {
 				t.Fatalf("status %d, body %s", w.Code, w.Body.String())
 			}
 		})
+	}
+}
+
+// Validation contract tests above deliberately run after authentication.
+type testAuth struct{ Auth }
+
+func (testAuth) RequireAdmin(next http.HandlerFunc) http.HandlerFunc { return next }
+func TestAnonymousCannotMutate(t *testing.T) {
+	for _, configured := range []bool{false, true} {
+		api := New(stubStore{})
+		if configured {
+			api.auth = auth.New(nil, map[string]bool{"http://localhost:3000": true}, true)
+		}
+		for _, path := range []string{"/api/doctors", "/api/doctors/id", "/api/doctors/id/schedules/2026-09-29", "/api/admin/content/news", "/api/admin/content/news/id", "/api/admin/content/news/import"} {
+			for _, method := range []string{"POST", "PUT", "DELETE"} {
+				r := httptest.NewRequest(method, path, strings.NewReader(`{}`))
+				r.Header.Set("Origin", "http://localhost:3000")
+				r.Header.Set("X-Requested-With", "clinic-admin")
+				w := httptest.NewRecorder()
+				api.Routes().ServeHTTP(w, r)
+				if w.Code != 401 && w.Code != 405 {
+					t.Fatalf("configured=%v %s %s: %d", configured, method, path, w.Code)
+				}
+			}
+		}
 	}
 }

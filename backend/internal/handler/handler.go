@@ -19,9 +19,37 @@ type Store interface {
 	UpsertSchedule(context.Context, model.Schedule) (model.Schedule, error)
 	DeleteSchedule(context.Context, string, string) error
 }
-type Handler struct{ store Store }
+type Auth interface {
+	RequireAdmin(http.HandlerFunc) http.HandlerFunc
+	Login(http.ResponseWriter, *http.Request)
+	Logout(http.ResponseWriter, *http.Request)
+	Me(http.ResponseWriter, *http.Request)
+}
+type Handler struct {
+	store   Store
+	auth    Auth
+	content ContentStore
+}
+type Option func(*Handler)
 
-func New(store Store) *Handler { return &Handler{store: store} }
+func WithAuth(auth Auth) Option               { return func(a *Handler) { a.auth = auth } }
+func WithContent(content ContentStore) Option { return func(a *Handler) { a.content = content } }
+
+func New(store Store, options ...Option) *Handler {
+	a := &Handler{store: store}
+	for _, option := range options {
+		option(a)
+	}
+	return a
+}
+func (a *Handler) admin(next http.HandlerFunc) http.HandlerFunc {
+	if a.auth != nil {
+		return a.auth.RequireAdmin(next)
+	}
+	return func(w http.ResponseWriter, r *http.Request) {
+		writeError(w, 401, "Войдите в аккаунт администратора")
+	}
+}
 func (a *Handler) health(w http.ResponseWriter, r *http.Request) {
 	writeJSON(w, http.StatusOK, map[string]string{"status": "ok"})
 }

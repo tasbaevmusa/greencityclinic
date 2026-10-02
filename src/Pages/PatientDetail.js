@@ -2,10 +2,18 @@ import React from "react";
 import { Navigate, useParams } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
+import VaccinationInfo from "../Components/VaccinationInfo";
 import { useLanguage } from "../i18n/LanguageContext";
 import "../Styles/Vacancies.css";
 
 const pages = {
+  en: {
+    attachment: ["FOR PATIENTS", "Clinic Registration", "Information about registering with NARAMED Clinic and the required documents."],
+    "health-school": ["FOR PATIENTS", "Health Education", "Helpful information about preventing illness and maintaining good health."],
+    vaccination: ["FOR PATIENTS", "Vaccination", "Information about available vaccinations, preparation and the vaccination process."],
+    screenings: ["FOR PATIENTS", "Screenings", "Information about preventive examinations and early detection of disease."],
+    "primary-care-procedure": ["FOR PATIENTS", "Primary Care Procedure"],
+  },
   ru: {
     attachment: ["ПАЦИЕНТАМ", "Прикрепление к поликлинике", "Информация о прикреплении к клинике НАРАМЕД и перечне необходимых документов."],
     "health-school": ["ПАЦИЕНТАМ", "Школа здоровья", "Полезная информация о профилактике заболеваний и поддержании здоровья."],
@@ -44,6 +52,13 @@ export default function PatientDetail() {
     note: "Сізге қандай тексеру қажет екенін және оны қашан өтуге болатынын учаскелік дәрігер нақтылайды. Скрининг тіркелген пациенттер үшін мемлекеттік бағдарлама шеңберінде жүргізіледі.",
     appointment: "Скринингке жазылу",
     message: "Сәлеметсіз бе! НАРАМЕД клиникасында скринингке жазылғым келеді. Жақын күнді хабарлай аласыз ба?"
+  } : language === "en" ? {
+    what: "What Is Screening?",
+    intro: "Screening is a free preventive check that can help identify changes in health at an early stage. Even if you feel well, timely screening can help prevent illness or start treatment early.",
+    types: "Screenings Available at the Clinic",
+    items: ["Screening adults for cardiovascular disease and risk factors", "Screening women for cervical and breast cancer", "Screening for cancers of the digestive system", "Early detection of skin growths", "Fluorography screening for tuberculosis"],
+    note: "Your primary care doctor can advise which examinations are right for you and when to have them. Screening is provided to registered patients as part of the state program.",
+    appointment: "Book a Screening", message: "Hello! I would like to book a screening at NARAMED Clinic. Please let me know the nearest available date."
   } : {
     what: "Что такое скрининг",
     intro: "Скрининг — бесплатная профилактическая проверка, которая помогает заметить изменения в здоровье на раннем этапе. Даже при хорошем самочувствии своевременное обследование позволяет предупредить заболевание или начать лечение вовремя.",
@@ -61,7 +76,7 @@ export default function PatientDetail() {
   };
   const screeningWhatsApp = `https://wa.me/77075340824?text=${encodeURIComponent(screeningCopy.message)}`;
 
-  return <><Navbar /><main className={`about-detail ${isPrimaryCareProcedure ? "patient-document" : ""} ${isScreenings ? "screening-page" : ""}`}><p>{page[0]}</p><h1>{page[1]}</h1><div>{isPrimaryCareProcedure ? <>
+  return <><Navbar /><main className={`about-detail ${isPrimaryCareProcedure ? "patient-document" : ""} ${isScreenings ? "screening-page" : ""} ${section === "vaccination" ? "vaccination-page" : ""}`}><p>{page[0]}</p><h1>{page[1]}</h1><div>{section === "vaccination" ? <VaccinationInfo language={language} /> : isPrimaryCareProcedure ? <>
     <p className="patient-document-source"><strong><em>(Выписка из приказа И. о. Министра здравоохранения Республики Казахстан от 30 марта 2023 года № 49).</em></strong></p>
     <p><strong>72.</strong> ПМСП населению в центре ПМСП оказывают врач общей практики, семейный врач, терапевт, педиатр, СМР (фельдшер, акушер(ка), сестра (брат) медицинская(ий) расширенной практики, сестра или (брат) медицинская(ий) участковая(ый), сестра (брат) медицинская(ий) общей практики), психолог, социальный работник в амбулаторных условиях, на дому.</p>
     <p><strong>74.</strong> Обслуживание вызовов осуществляется врачом ПМСП в течение рабочего дня.</p>

@@ -32,39 +32,47 @@ function Navbar() {
     ["contact", "/#contact"],
   ];
   const aboutMenu = [
-    [language === "kk" ? "NARAMED клиникасы туралы" : "О клинике NARAMED", "/about/clinic"],
-    [language === "kk" ? "Мемлекеттік рәміздер" : "Государственные символы", "/state-symbols"],
+    [language === "kk" ? "NARAMED клиникасы туралы" : language === "en" ? "About NARAMED Clinic" : "О клинике NARAMED", "/about/clinic"],
+    [language === "kk" ? "Тіркелу тәртібі" : language === "en" ? "Clinic Registration" : "Порядок прикрепления", "/about/attachment-rules"],
+    [language === "kk" ? "Пациенттердің құқықтары мен міндеттері" : language === "en" ? "Patient Rights and Responsibilities" : "Права и обязанности пациентов", "/about/patient-rights"],
+    [language === "kk" ? "Мемлекеттік рәміздер" : language === "en" ? "National Symbols" : "Государственные символы", "/state-symbols"],
     [t.aboutMenu.vision, "/about/vision"],
     [t.aboutMenu.mission, "/about/mission"],
     [t.aboutMenu.achievements, "/about/achievements"],
-    [language === "kk" ? "Нормативтік-құқықтық база" : "Нормативно-правовая база", "/about/regulatory-framework"],
-    [language === "kk" ? "Этикалық кодекс" : "Этический кодекс", "/about/ethical-code"],
-    [language === "kk" ? "Сыбайлас жемқорлыққа қарсы комплаенс-қызметі" : "Антикоррупционная комплаенс-служба", "/about/anticorruption-compliance"],
+    [language === "kk" ? "Нормативтік-құқықтық база" : language === "en" ? "Legal Framework" : "Нормативно-правовая база", "/about/regulatory-framework"],
+    [language === "kk" ? "Этикалық кодекс" : language === "en" ? "Code of Ethics" : "Этический кодекс", "/about/ethical-code"],
+    [language === "kk" ? "Сыбайлас жемқорлыққа қарсы комплаенс-қызметі" : language === "en" ? "Anti-Corruption Compliance Service" : "Антикоррупционная комплаенс-служба", "/about/anticorruption-compliance"],
     [t.aboutMenu.vacancies, "/vacancies"],
     [t.aboutMenu.schedule, "/doctors-schedule"],
-    [language === "kk" ? "Теледидарға арналған кесте" : "График для ТВ", "/tv-schedule"],
-    [language === "kk" ? "Құқықтық ақпарат" : "Правовая информация", "/legal"],
+    [language === "kk" ? "Теледидарға арналған кесте" : language === "en" ? "TV Schedule" : "График для ТВ", "/tv-schedule"],
+    [language === "kk" ? "Құқықтық ақпарат" : language === "en" ? "Legal Information" : "Правовая информация", "/legal"],
     [t.nav.news, "/#news"],
     [t.nav.contact, "/#contact"],
   ];
-  const servicesMenu = [[t.priceList, "/services/price-list"]];
+  const servicesMenu = [[language === "kk" ? "Тегін қызметтер" : language === "en" ? "Free Services" : "Бесплатные услуги", "/services/free"], [t.priceList, "/services/price-list"]];
   const patientMenu = language === "kk"
     ? [["Емханаға тіркелу", "/patients/attachment"], ["Тіркелу", "/appointment"], ["Денсаулық мектебі", "/patients/health-school"], ["Вакцинация", "/patients/vaccination"], ["Скринингтер", "/patients/screenings"], ["Алғашқы медициналық-санитариялық көмек көрсету тәртібі", "/patients/primary-care-procedure"], ["ҚҰЖАТТАР", null], ["Сұрақ-жауап", "/#faq"]]
-    : [["Прикрепление к поликлинике", "/patients/attachment"], ["Прикрепиться", "/appointment"], ["Школа здоровья", "/patients/health-school"], ["Вакцинация", "/patients/vaccination"], ["Скрининги", "/patients/screenings"], ["Порядок оказания первичной медико-санитарной помощи", "/patients/primary-care-procedure"], ["ДОКУМЕНТЫ", null], ["Вопрос-ответ", "/#faq"]];
+    : language === "en"
+      ? [["Clinic Registration", "/patients/attachment"], ["Register", "/appointment"], ["Health Education", "/patients/health-school"], ["Vaccination", "/patients/vaccination"], ["Screenings", "/patients/screenings"], ["Primary Care Procedure", "/patients/primary-care-procedure"], ["DOCUMENTS", null], ["FAQ", "/#faq"]]
+      : [["Прикрепление к поликлинике", "/patients/attachment"], ["Прикрепиться", "/appointment"], ["Школа здоровья", "/patients/health-school"], ["Вакцинация", "/patients/vaccination"], ["Скрининги", "/patients/screenings"], ["Порядок оказания первичной медико-санитарной помощи", "/patients/primary-care-procedure"], ["ДОКУМЕНТЫ", null], ["Вопрос-ответ", "/#faq"]];
   const dropdowns = { about: aboutMenu, services: servicesMenu, patients: patientMenu };
   const whatsappUrl = "https://wa.me/77075340824";
   const renderMenuLink = ([label, to]) => !to
     ? <p key={label} className="patient-dropdown-label">{label}</p>
+    : to === "/appointment"
+    ? <a key={label} href={whatsappUrl} target="_blank" rel="noopener noreferrer">{label}</a>
     : to.startsWith("https://")
     ? <a key={label} href={to} target="_blank" rel="noopener noreferrer">{label}</a>
     : <Link key={label} to={to}>{label}</Link>;
 
   const labels = language === "kk"
     ? { address: "Алматы қ., Думан-2, 61", hours: "Күн сайын 08:00–21:00", accessibility: "Нашар көретіндерге арналған нұсқа", openMenu: "Мәзірді ашу", closeMenu: "Мәзірді жабу" }
-    : { address: "г. Алматы, Думан-2, 61", hours: "Ежедневно 08:00–21:00", accessibility: "Версия для слабовидящих", openMenu: "Открыть меню", closeMenu: "Закрыть меню" };
+    : language === "en"
+      ? { address: "Duman-2, 61, Almaty", hours: "Daily 08:00–21:00", accessibility: "Accessible version", openMenu: "Open menu", closeMenu: "Close menu" }
+      : { address: "г. Алматы, Думан-2, 61", hours: "Ежедневно 08:00–21:00", accessibility: "Версия для слабовидящих", openMenu: "Открыть меню", closeMenu: "Закрыть меню" };
   const navLabels = language === "kk"
     ? { patients: "Пациенттерге", gallery: "Галерея" }
-    : { patients: "Пациентам", gallery: "Галерея" };
+    : language === "en" ? { patients: "For Patients", gallery: "Gallery" } : { patients: "Пациентам", gallery: "Галерея" };
 
   useEffect(() => {
     setNavOpen(false);
@@ -93,10 +101,10 @@ function Navbar() {
             <a href="tel:+77075340824"><Phone size={14} />+7 (707) 534-08-24</a>
           </div>
           <div className="utility-actions">
-            <div className="header-languages" aria-label="Выбор языка">
-              {["kk", "ru"].map((code) => (
+            <div className="header-languages" aria-label={language === "kk" ? "Тілді таңдау" : language === "en" ? "Language selection" : "Выбор языка"}>
+              {["kk", "ru", "en"].map((code) => (
                 <button type="button" key={code} className={language === code ? "active" : ""} onClick={() => setLanguage(code)}>
-                  {code === "kk" ? "ҚАЗ" : "РУС"}
+                  {{ kk: "ҚАЗ", ru: "РУС", en: "ENG" }[code]}
                 </button>
               ))}
             </div>
@@ -114,7 +122,7 @@ function Navbar() {
             <span className="navbar-logo-copy"><strong>НАРАМЕД</strong><small>{t.clinic}</small></span>
           </Link>
 
-          <nav className="desktop-nav" aria-label="Основная навигация">
+          <nav className="desktop-nav" aria-label={language === "kk" ? "Негізгі навигация" : language === "en" ? "Main navigation" : "Основная навигация"}>
             <ul>
               {menu.map(([key, href]) => (
                 <li key={key} className={dropdowns[key] ? "nav-dropdown" : ""}>
@@ -124,11 +132,11 @@ function Navbar() {
                   {dropdowns[key] && <div className={`nav-dropdown-menu ${key === "about" ? "about-dropdown-menu" : ""} ${key === "patients" ? "patient-dropdown-menu" : ""}`}>
                     {key === "about" ? <>
                       <div className="about-dropdown-intro">
-                        {aboutMenu.slice(0, 2).map(([label, to]) => <Link key={to} to={to}>{label}</Link>)}
+                      {aboutMenu.slice(0, 4).map(([label, to]) => <Link key={to} to={to}>{label}</Link>)}
                       </div>
-                      <p className="about-dropdown-label">{language === "kk" ? "Клиника туралы ақпарат" : "Информация о клинике"}</p>
+                      <p className="about-dropdown-label">{language === "kk" ? "Клиника туралы ақпарат" : language === "en" ? "About the Clinic" : "Информация о клинике"}</p>
                       <div className="about-dropdown-grid">
-                        {aboutMenu.slice(2).map(([label, to]) => <Link key={to} to={to}>{label}</Link>)}
+                        {aboutMenu.slice(4).map(([label, to]) => <Link key={to} to={to}>{label}</Link>)}
                       </div>
                     </> : dropdowns[key].map(renderMenuLink)}
                   </div>}

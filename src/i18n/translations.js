@@ -7,7 +7,7 @@ const translations = {
     appointment: "Онлайн жазылу",
     hero: { label: "Клиника жаңалықтары", previous: "Алдыңғы слайд", next: "Келесі слайд", show: "Слайдты көрсету" },
     services: ["Электрондық үкімет", "Дәрігерді үйге шақыру", "Пациенттің жеке кабинеті", "Қабылдауға жазылу", "Медициналық ұйымға тіркелу", "МӘМС"],
-    doctorsSection: { label: "БІЗДІҢ МАМАНДАР", title: "Клиника дәрігерлері", more: "Толығырақ", previous: "Алдыңғы дәрігерлер", next: "Келесі дәрігерлер" },
+    doctorsSection: { all: "Барлық дәрігерлер", loading: "Дәрігерлер тізімі жүктелуде…", error: "Дәрігерлер тізімін жүктеу мүмкін болмады.", retry: "Қайталау", empty: "Дәрігерлер тізімі жақында қосылады.", label: "БІЗДІҢ МАМАНДАР", title: "Клиника дәрігерлері", more: "Толығырақ", previous: "Алдыңғы дәрігерлер", next: "Келесі дәрігерлер" },
     doctorProfiles: { "doctor-1": { position: "Терапевт", description: "Тәжірибелі терапевт. Ересектер мен балаларға кеңес береді." }, "doctor-2": { position: "Эндокринолог", description: "Эндокриндік ауруларды диагностикалау және емдеу маманы." }, "doctor-3": { position: "Кардиолог", description: "Жүрек-қан тамырлары аурулары бойынша дәрігер-кардиолог." } },
     newsSection: { label: "ДЕНСАУЛЫҚ ЖАҢАЛЫҚТАРЫ", title: "Қазақстанның медициналық жаңалықтары", all: "Денсаулық сақтау министрлігінің барлық жаңалығы ↗", read: "Толығырақ оқу" },
     newsItems: {
@@ -62,7 +62,7 @@ const translations = {
     appointment: "Онлайн-запись",
     hero: { label: "Новости клиники", previous: "Предыдущий слайд", next: "Следующий слайд", show: "Показать слайд" },
     services: ["Электронное правительство", "Вызов врача на дом", "Личный кабинет пациента", "Запись на приём", "Прикрепление к медорганизации", "ОСМС"],
-    doctorsSection: { label: "НАШИ СПЕЦИАЛИСТЫ", title: "Врачи клиники", more: "Подробнее", previous: "Предыдущие врачи", next: "Следующие врачи" },
+    doctorsSection: { all: "Все врачи", loading: "Загружаем список врачей…", error: "Не удалось загрузить список врачей.", retry: "Попробовать снова", empty: "Список врачей скоро появится.", label: "НАШИ СПЕЦИАЛИСТЫ", title: "Врачи клиники", more: "Подробнее", previous: "Предыдущие врачи", next: "Следующие врачи" },
     doctorProfiles: { "doctor-1": { position: "Терапевт", description: "Опытный терапевт. Проводит консультации для взрослых и детей." }, "doctor-2": { position: "Эндокринолог", description: "Специалист по диагностике и лечению эндокринных заболеваний." }, "doctor-3": { position: "Кардиолог", description: "Врач-кардиолог по заболеваниям сердечно-сосудистой системы." } },
     newsSection: { label: "НОВОСТИ ЗДОРОВЬЯ", title: "Медицинские новости Казахстана", all: "Все новости Минздрава ↗", read: "Читать подробнее" },
     newsItems: {},
@@ -117,6 +117,43 @@ const translations = {
       osms: { title: "ОСМС", description: "Информация и консультация по получению медицинской помощи в рамках системы обязательного социального медицинского страхования.", action: "Записаться на консультацию", to: "/appointment" }
     } },
     location: { label: "КОНТАКТЫ", title: "Где мы находимся?", description: "Приходите в клинику Нарамед, чтобы записаться на консультацию врача и медицинское обследование.", addressLabel: "Наш адрес", address: "г. Алматы, Думан-2, 61", phone: "Телефон", hours: "Время работы", schedule: "Ежедневно: 08:00–21:00", route: "Построить маршрут в 2GIS", openMap: "Открыть карту в 2GIS", clinic: "Клиника НАРАМЕД" }
+  },
+  en: {
+    clinic: "CLINIC",
+    nav: { home: "Home", about: "About Us", symbols: "National Symbols", services: "Services", doctors: "Doctors", news: "News", contact: "Contact" },
+    aboutMenu: { vision: "Vision", mission: "Mission", vacancies: "Careers", news: "News", achievements: "Achievements", schedule: "Doctors’ Schedule" },
+    priceList: "Price List", appointment: "Book Online",
+    hero: { label: "Clinic News", previous: "Previous slide", next: "Next slide", show: "Show slide" },
+    services: ["E-Government", "Home Doctor Visit", "Patient Portal", "Book an Appointment", "Register with the Clinic", "Mandatory Health Insurance"],
+    doctorsSection: { all: "All Doctors", loading: "Loading doctors…", error: "Could not load the doctors list.", retry: "Try Again", empty: "The doctors list will be available soon.", label: "OUR SPECIALISTS", title: "Our Doctors", more: "Learn More", previous: "Previous doctors", next: "Next doctors" },
+    doctorProfiles: { "doctor-1": { position: "General Practitioner", description: "Experienced doctor providing consultations for adults and children." }, "doctor-2": { position: "Endocrinologist", description: "Specialist in diagnosing and treating endocrine disorders." }, "doctor-3": { position: "Cardiologist", description: "Cardiologist specializing in cardiovascular conditions." } },
+    newsSection: { label: "HEALTH NEWS", title: "Healthcare News in Kazakhstan", all: "All Ministry of Health news ↗", read: "Read more" },
+    newsItems: {
+      "news-1": { category: "Digital Health", title: "Kazakhstan is building a unified digital healthcare architecture", description: "The unified healthcare information system is bringing medical services together in the E-Densaulyq ecosystem. By December 2026, it is expected to become a key platform for managing the sector.", source: "Ministry of Healthcare of Kazakhstan" },
+      "news-2": { category: "Health Insurance", title: "Digital healthcare and the sustainability of the health insurance system", description: "Around 17 million people in Kazakhstan are covered by the health insurance system. Digital tools improve transparency, quality monitoring and access to medical care.", source: "Ministry of Healthcare of Kazakhstan" },
+      "news-3": { category: "Healthcare", title: "Kazakhstan joins countries reducing deaths from chronic diseases", description: "The Ministry presented key sector indicators, including digital medicine, lower maternal and child mortality, and stronger workforce capacity.", source: "Ministry of Healthcare of Kazakhstan" }
+    },
+    reviewsSection: { label: "PATIENT REVIEWS", title: "Trusted by Our Patients", all: "All reviews on 2GIS ↗", stars: "out of 5 stars", source: "2GIS review", previous: "Previous review", next: "Next review" },
+    footer: { description: "Modern medical care, with attention and compassion for every patient.", navigation: "Navigation", home: "Home", doctors: "Doctors", paid: "Paid Services", news: "News", vacancies: "Careers", contacts: "Contact", address: "Duman-2, 61, Almaty", schedule: "Daily: 08:00–21:00", social: "Follow Us", map: "Open in 2GIS", appointment: "Book Online", rights: "All rights reserved.", legal: "Legal Information" },
+    vacancies: { label: "CAREERS AT NARAMED", title: "Open Positions", intro: "Join our team and help care for patients every day.", requirements: "Requirements", apply: "Apply", empty: "There are no open positions right now", follow: "Check this page for updates." },
+    vacancyItems: { "vacancy-1": { title: "General Practitioner", department: "Outpatient Department", employment: "Full-time", description: "We are looking for a caring doctor to provide outpatient consultations.", requirements: "Higher medical education and a valid specialist certificate." } },
+    pricePage: { label: "PAID MEDICAL SERVICES", title: "Price List", intro: "Current list of services and prices in tenge.", open: "Open PDF", download: "Download", frameTitle: "NARAMED Paid Services Price List", fallback: "If the document does not display, open the PDF in a new tab." },
+    doctorPage: { notFound: "Doctor not found", home: "Back to Home", back: "Home", whatsapp: "Book via WhatsApp", message: "Hello! I would like to book an appointment with:" },
+    aboutPages: {
+      vision: { eyebrow: "OUR VISION", title: "Vision", text: "To be a modern and accessible clinic trusted by patients and healthcare professionals. We develop preventive care, digital services and a culture of attentive care for everyone." },
+      mission: { eyebrow: "OUR PURPOSE", title: "Mission", text: "To provide quality, safe and timely medical care by combining professional doctors, modern diagnostics and clear patient services." },
+      achievements: { eyebrow: "OUR PROGRESS", title: "Achievements", text: "We continually improve the quality of care, expand our services, introduce modern technologies and develop our team." },
+      "ethical-code": { eyebrow: "ABOUT US", title: "Code of Ethics", textFile: "/ethical-code.txt" },
+      "anticorruption-compliance": { eyebrow: "ABOUT US", title: "Anti-Corruption Compliance Service", text: "The Anti-Corruption Compliance Service ensures that NARAMED Clinic and its employees comply with the laws of the Republic of Kazakhstan on combating corruption and oversees anti-corruption measures.", tasksTitle: "Responsibilities:", tasks: ["monitoring legal compliance and applying best practices in anti-corruption;", "ensuring the clinic follows core anti-corruption principles;", "identifying, assessing and reviewing corruption risks;", "organizing and implementing anti-corruption measures;", "monitoring the clinic’s compliance activities."], documentsTitle: "Documents", documents: [{ title: "Anti-Corruption Compliance Service Document", file: "/documents/anticorruption-compliance-document.doc" }, { title: "Anti-Corruption Strategy of the Republic of Kazakhstan, 2015–2025", file: "/documents/anticorruption-strategy-2015-2025.docx" }] },
+      director: { eyebrow: "CHIEF DOCTOR’S BLOG", title: "Aida Zhuzbaykyzy", text: "Welcome to NARAMED Clinic! Our main goal is to provide every patient with quality, clear medical care. We build a clinic grounded in trust, professionalism and thoughtful care." }
+    },
+    servicePage: { label: "CLINIC SERVICES", all: "All Services", details: {
+      "doctor-home": { title: "Home Doctor Visit", description: "Request a home visit. Our administrator will contact you to confirm your address, symptoms and preferred time.", action: "Submit a Request", to: "/appointment" },
+      "patient-cabinet": { title: "Patient Portal", description: "Sign in to use the clinic’s available online services.", action: "Sign In", to: "/login" },
+      attachment: { title: "Clinic Registration", description: "Get advice about registering with the clinic and the required documents.", action: "Get Advice", to: "/appointment" },
+      osms: { title: "Mandatory Health Insurance", description: "Information and advice about receiving care through the mandatory health insurance system.", action: "Book a Consultation", to: "/appointment" }
+    } },
+    location: { label: "CONTACT", title: "Where to Find Us", description: "Visit NARAMED Clinic to book a doctor’s consultation or a medical examination.", addressLabel: "Our Address", address: "Duman-2, 61, Almaty", phone: "Phone", hours: "Opening Hours", schedule: "Daily: 08:00–21:00", route: "Get Directions in 2GIS", openMap: "Open Map in 2GIS", clinic: "NARAMED Clinic" }
   }
 };
 

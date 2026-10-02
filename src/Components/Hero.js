@@ -6,6 +6,12 @@ import "../Styles/Hero.css";
 import { useLanguage } from "../i18n/LanguageContext";
 
 const content = {
+  en: {
+    eyebrow: "Caring for your health every day", title: "Modern healthcare close to home",
+    description: "NARAMED Clinic offers attentive doctors, accurate diagnostics and a clear path to better health for the whole family.",
+    appointment: "Book an Appointment", doctor: "Choose a Doctor", attachment: "Register with the Clinic", schedule: "Doctors’ Schedule",
+    callCenter: "Call Center", hours: "Opening Hours", weekdays: "Daily 08:00–21:00", imageAlt: "Entrance to NARAMED Clinic",
+  },
   ru: {
     eyebrow: "Заботимся о вашем здоровье каждый день",
     title: "Современная медицина рядом с вами",
@@ -31,7 +37,7 @@ function Hero() {
   const copy = content[language] || content.ru;
   const attachmentMessage = language === "kk"
     ? "Сәлеметсіз бе! NARAMED клиникасына тіркелгім келеді. Кеңес бере аласыз ба?"
-    : "Здравствуйте! Я хочу прикрепиться к клинике НАРАМЕД. Подскажите, пожалуйста, порядок прикрепления.";
+    : language === "en" ? "Hello! I would like to register with NARAMED Clinic. Could you please advise me on the process?" : "Здравствуйте! Я хочу прикрепиться к клинике НАРАМЕД. Подскажите, пожалуйста, порядок прикрепления.";
   const attachmentWhatsApp = `https://wa.me/77075340824?text=${encodeURIComponent(attachmentMessage)}`;
 
   return (

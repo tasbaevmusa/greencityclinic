@@ -6,6 +6,7 @@ import { useLanguage } from "../i18n/LanguageContext";
 import "../Styles/ChiefDoctor.css";
 
 const content = {
+  en: { label: "CHIEF DOCTOR", name: "Aida Zhuzbaykyzy", greeting: "Welcome to NARAMED Clinic!", action: "Chief Doctor’s Blog", roleLabel: "LEADERSHIP", role: "Chief Doctor", alt: "Chief doctor of NARAMED Clinic" },
   ru: {
     label: "ГЛАВНЫЙ ВРАЧ КЛИНИКИ",
     name: "Аида Жузбаевна",

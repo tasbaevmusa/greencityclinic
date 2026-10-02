@@ -4,6 +4,19 @@ import { useLanguage } from "../i18n/LanguageContext";
 import "../Styles/FAQ.css";
 
 const content = {
+  en: {
+    label: "FREQUENTLY ASKED QUESTIONS", title: "Answers to Common Questions",
+    description: "Answers about appointments, clinic registration, health insurance and home doctor visits.", more: "All questions and answers", less: "Show less",
+    help: "Still have questions?", support: "The NARAMED team is here to help.", contact: "Message us on WhatsApp",
+    questions: [
+      ["How do I book a doctor’s appointment?", "Message us on WhatsApp or call +7 (707) 534-08-24. Our administrator will help you choose a doctor and appointment time."],
+      ["How do I register with the clinic?", "Contact NARAMED reception and we will explain the registration process and required documents."],
+      ["How do I request a home visit?", "Call the clinic or message us on WhatsApp. Our administrator will confirm availability, your address and a convenient time."],
+      ["How can I learn about insurance-covered services?", "Contact reception to ask which services are available through the mandatory health insurance system and how to book."],
+      ["Where is the clinic located?", "Our address is Duman-2, 61, Almaty. Find the map and directions in the Contact section."],
+      ["What are the clinic’s opening hours?", "We are open daily from 08:00 to 21:00. Please confirm each specialist’s appointment hours when booking."],
+    ],
+  },
   ru: {
     label: "ВОПРОС–ОТВЕТ",
     title: "Ответим на частые вопросы",

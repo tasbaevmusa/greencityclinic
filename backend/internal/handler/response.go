@@ -2,6 +2,7 @@ package handler
 
 import (
 	"encoding/json"
+	"fmt"
 	"io"
 	"log"
 	"net/http"
@@ -9,9 +10,16 @@ import (
 
 func decode(r *http.Request, target any) error {
 	defer r.Body.Close()
-	d := json.NewDecoder(io.LimitReader(r.Body, 8<<20))
+	d := json.NewDecoder(http.MaxBytesReader(nil, r.Body, 8<<20))
 	d.DisallowUnknownFields()
-	return d.Decode(target)
+	if err := d.Decode(target); err != nil {
+		return err
+	}
+	var extra any
+	if err := d.Decode(&extra); err != io.EOF {
+		return fmt.Errorf("request must contain one JSON value")
+	}
+	return nil
 }
 func writeJSON(w http.ResponseWriter, status int, value any) {
 	w.Header().Set("Content-Type", "application/json")

@@ -6,13 +6,14 @@ import (
 )
 
 type Config struct {
-	Port        string
-	DatabaseURL string
-	Origins     map[string]bool
+	Port          string
+	DatabaseURL   string
+	Origins       map[string]bool
+	SecureCookies bool
 }
 
 func Load() Config {
-	return Config{Port: env("PORT", "8080"), DatabaseURL: env("DATABASE_URL", "postgres://myuser:mypassword@localhost:5432/mydb?sslmode=disable"), Origins: originSet(env("ALLOWED_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000"))}
+	return Config{Port: env("PORT", "8080"), DatabaseURL: env("DATABASE_URL", "postgres://myuser:mypassword@localhost:5432/mydb?sslmode=disable"), Origins: originSet(env("ALLOWED_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000")), SecureCookies: env("COOKIE_SECURE", "true") != "false"}
 }
 func env(key, fallback string) string {
 	if value := os.Getenv(key); value != "" {

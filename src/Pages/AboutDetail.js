@@ -4,9 +4,11 @@ import { Download, FileText } from "lucide-react";
 import Navbar from "../Components/Navbar";
 import "../Styles/Vacancies.css";
 import { useLanguage } from "../i18n/LanguageContext";
+import ClinicPurpose from "../Components/ClinicPurpose";
 function AboutDetail() {
   const { t } = useLanguage();
-  const page = t.aboutPages[useParams().section];
+  const { section } = useParams();
+  const page = t.aboutPages[section];
   const [documentText, setDocumentText] = useState("");
 
   useEffect(() => {
@@ -18,6 +20,7 @@ function AboutDetail() {
   }, [page]);
 
   if (!page) return <Navigate to="/" replace />;
+  if (section === "mission" || section === "vision") return <ClinicPurpose section={section} />;
 
   const paragraphs = documentText.split(/\r?\n\s*\r?\n/).filter(Boolean);
   return <><Navbar /><main className={`about-detail ${page.textFile ? "ethical-code-page" : ""} ${Array.isArray(page.text) ? "director-message" : ""} ${page.tasks ? "compliance-page" : ""}`}><p>{page.eyebrow}</p><h1>{page.title}</h1><div>{page.textFile ? paragraphs.map((paragraph, index) => {

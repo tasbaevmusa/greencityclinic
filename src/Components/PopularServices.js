@@ -1,3 +1,4 @@
+import AppointmentLink from "./AppointmentLink";
 import React from "react";
 import { Link } from "react-router-dom";
 import {
@@ -19,6 +20,7 @@ import { useLanguage } from "../i18n/LanguageContext";
 import "../Styles/PopularServices.css";
 
 const content = {
+  en: { eyebrow: "SERVICES", title: "Popular Services", all: "All Services", items: ["General Practitioner Consultation", "Pediatric Consultation", "Ultrasound Diagnostics", "Laboratory Tests", "Women’s Health Consultation", "Vaccination"] },
   ru: {
     eyebrow: "УСЛУГИ",
     title: "Популярные услуги",
@@ -75,9 +77,9 @@ function PopularServices() {
 
         <div className="popular-services__grid">
           {cards.map(({ image, icon: Icon }, index) => (
-            <Link
+            <AppointmentLink
               key={copy.items[index]}
-              to="/appointment"
+
               className="popular-service-card"
               aria-label={copy.items[index]}
             >
@@ -86,7 +88,7 @@ function PopularServices() {
               <span className="popular-service-card__icon"><Icon size={16} /></span>
               <strong>{copy.items[index]}</strong>
               <span className="popular-service-card__arrow"><ArrowRight size={16} /></span>
-            </Link>
+            </AppointmentLink>
           ))}
         </div>
       </div>

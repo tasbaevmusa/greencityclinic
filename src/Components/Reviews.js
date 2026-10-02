@@ -1,10 +1,11 @@
 import React, { useEffect, useMemo, useState } from "react";
+import ContentStatus from "./ContentStatus";
 import { TWO_GIS_REVIEWS_URL, useReviews } from "../data/ReviewsContext";
 import "../Styles/Reviews.css";
 import { useLanguage } from "../i18n/LanguageContext";
 
 function Reviews() {
-  const { reviews } = useReviews();
+  const { reviews, loading, error, refresh } = useReviews();
   const { t } = useLanguage();
   const positiveReviews = useMemo(() => reviews.filter((item) => Number(item.rating) >= 4), [reviews]);
   const [index, setIndex] = useState(0);
@@ -16,7 +17,7 @@ function Reviews() {
   }, [positiveReviews.length]);
 
   useEffect(() => { if (index >= positiveReviews.length) setIndex(0); }, [index, positiveReviews.length]);
-  if (!positiveReviews.length) return null;
+  if (!positiveReviews.length) return loading || error ? <section className="review-section"><ContentStatus loading={loading} error={error} retry={refresh} /></section> : null;
 
   const review = positiveReviews[index];
   const move = (direction) => setIndex((current) => (current + direction + positiveReviews.length) % positiveReviews.length);

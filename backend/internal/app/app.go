@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"health-plus/backend/internal/auth"
 	"health-plus/backend/internal/config"
 	"health-plus/backend/internal/database"
 	"health-plus/backend/internal/handler"
@@ -26,7 +27,8 @@ func Run() error {
 		return err
 	}
 	defer db.Close()
-	api := handler.New(repository.New(db))
+	store := repository.New(db)
+	api := handler.New(store, handler.WithAuth(auth.New(db, cfg.Origins, cfg.SecureCookies)), handler.WithContent(store))
 	server := &http.Server{Addr: ":" + cfg.Port, Handler: middleware.CORS(cfg.Origins, api.Routes()), ReadHeaderTimeout: 5 * time.Second, IdleTimeout: 60 * time.Second}
 	done := make(chan error, 1)
 	go func() { done <- server.ListenAndServe() }()

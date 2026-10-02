@@ -10,7 +10,7 @@ function WhatsAppFloat() {
   const { language } = useLanguage();
   if (pathname.startsWith("/admin") || pathname === "/login") return null;
 
-  const label = language === "kk" ? "WhatsApp арқылы жазылу" : "Написать в WhatsApp";
+  const label = language === "kk" ? "WhatsApp арқылы жазылу" : language === "en" ? "Message us on WhatsApp" : "Написать в WhatsApp";
   return <a className="whatsapp-float" href="https://wa.me/77075340824" target="_blank" rel="noopener noreferrer" aria-label={label} title={label}>
     <span className="whatsapp-float-ring" aria-hidden="true" />
     <FontAwesomeIcon icon={faWhatsapp} />

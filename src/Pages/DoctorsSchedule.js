@@ -1,3 +1,4 @@
+import { clinicDateKey, clinicWeekStart, CLINIC_ZONE } from "../utils/clinicSchedule";
 import React, { useEffect, useMemo, useState } from "react";
 import { CalendarDays, ChevronLeft, ChevronRight, Clock3, Search } from "lucide-react";
 import Navbar from "../Components/Navbar";
@@ -7,14 +8,8 @@ import { schedulesApi } from "../services/api";
 import "../Styles/DoctorsSchedule.css";
 
 const dayNames = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
-const startOfWeek = (value) => {
-  const date = new Date(value);
-  const day = date.getDay() || 7;
-  date.setHours(0, 0, 0, 0);
-  date.setDate(date.getDate() - day + 1);
-  return date;
-};
-const formatDate = (date) => new Intl.DateTimeFormat("ru-RU", { day: "numeric", month: "long" }).format(date);
+const startOfWeek = clinicWeekStart;
+const formatDate = (date) => new Intl.DateTimeFormat("ru-RU", { timeZone: CLINIC_ZONE, day: "numeric", month: "long" }).format(date);
 
 function DoctorsSchedule() {
   const { doctors, loading, error } = useDoctors();
@@ -25,8 +20,8 @@ function DoctorsSchedule() {
   const [scheduleError, setScheduleError] = useState("");
   const dates = useMemo(() => dayNames.map((name, index) => {
     const date = new Date(weekStart);
-    date.setDate(date.getDate() + index);
-    return { name, date, key: date.toISOString().slice(0, 10) };
+    date.setUTCDate(date.getUTCDate() + index);
+    return { name, date, key: clinicDateKey(date) };
   }), [weekStart]);
   useEffect(() => {
     let active = true;
@@ -71,7 +66,7 @@ function DoctorsSchedule() {
         <div className="public-schedule-scroll" tabIndex={0} role="region" aria-label="Расписание врачей — прокрутка по горизонтали">
           <div className="public-schedule-grid">
             <div className="public-grid-head public-doctor-column">Врач</div>
-            {dates.map((item) => <div className={`public-grid-head ${item.key === new Date().toISOString().slice(0, 10) ? "current" : ""}`} key={item.key}><b>{item.name}</b><span>{item.date.getDate()}</span></div>)}
+            {dates.map((item) => <div className={`public-grid-head ${item.key === clinicDateKey() ? "current" : ""}`} key={item.key}><b>{item.name}</b><span>{item.date.getUTCDate()}</span></div>)}
             {visibleDoctors.map((doctor) => <React.Fragment key={doctor.id}>
               <div className="public-doctor-column public-doctor-info"><div><b>{doctor.name}</b><span>{doctor.position}</span></div></div>
               {dates.map((date) => {

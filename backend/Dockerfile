@@ -4,10 +4,12 @@ COPY go.mod go.sum* ./
 RUN go mod download
 COPY . .
 RUN CGO_ENABLED=0 GOOS=linux go build -o /health-plus-api ./cmd/server
+RUN CGO_ENABLED=0 GOOS=linux go build -o /clinic-admin ./cmd/admin
 
 FROM alpine:3.21
 RUN adduser -D -H appuser
 USER appuser
 COPY --from=build /health-plus-api /health-plus-api
+COPY --from=build /clinic-admin /clinic-admin
 EXPOSE 8080
 ENTRYPOINT ["/health-plus-api"]

@@ -9,6 +9,16 @@ import { useLanguage } from "../i18n/LanguageContext";
 import "../Styles/AboutClinic.css";
 
 const copy = {
+  en: {
+    eyebrow: "ABOUT THE CLINIC", title: "NARAMED — healthcare close to home",
+    intro: "A modern clinic in the Duman-2 neighborhood of Almaty. We combine attentive care and experienced specialists, guiding patients from consultation through diagnosis and treatment.",
+    action: "Meet Our Doctors", schedule: "Doctors’ Schedule", doctors: "doctors", specialties: "specialties", days: "days a week", hours: "opening hours",
+    missionLabel: "OUR MISSION", mission: "Quality medical care in an atmosphere of trust",
+    missionText: "We help patients get timely consultations, undergo examinations and make informed decisions about their health. We value safety, professionalism and respectful communication.",
+    values: "Our Values", valueItems: [["Care", "We pay close attention to every patient’s health, questions and circumstances."], ["Professionalism", "We develop our specialists’ skills and use modern diagnostic approaches."], ["Safety", "We follow medical standards and put quality of care first."], ["Accessibility", "We explain recommendations clearly and help patients choose a convenient way to get care."]],
+    directionsLabel: "MEDICAL CARE", directions: "Our Main Services", directionItems: ["General Practice", "Ultrasound Diagnostics", "Women’s Health", "Pediatric Care", "Cardiology and Vascular Care", "Laboratory Tests"],
+    location: "Located in Almaty", address: "Duman-2, 61", openMap: "Get Directions in 2GIS", openDaily: "Daily, 08:00–21:00"
+  },
   ru: {
     eyebrow: "О КЛИНИКЕ", title: "NARAMED — забота о здоровье рядом с домом",
     intro: "Современная клиника в микрорайоне Думан-2 города Алматы. Мы объединяем внимательное отношение, опыт специалистов и понятный путь пациента от консультации до диагностики и лечения.",
@@ -44,7 +54,7 @@ const copy = {
 export default function AboutClinic() {
   const { language } = useLanguage();
   const { doctors } = useDoctors();
-  const c = copy[language === "kk" ? "kk" : "ru"];
+  const c = copy[language] || copy.ru;
   const specialtyCount = new Set(doctors.map((doctor) => doctor.position).filter(Boolean)).size;
   const valueIcons = [HandHeart, Stethoscope, ShieldCheck, UsersRound];
 
@@ -58,10 +68,10 @@ export default function AboutClinic() {
           <p>{c.intro}</p>
           <div className="about-clinic-actions"><Link to="/#doctors">{c.action}<ArrowRight /></Link><Link className="secondary" to="/doctors-schedule"><CalendarDays />{c.schedule}</Link></div>
         </div>
-        <div className="about-clinic-photo"><img src={reception} alt={language === "kk" ? "NARAMED клиникасының тіркеу бөлімі" : "Регистратура клиники NARAMED"} /><span><MapPin />{c.address}</span></div>
+        <div className="about-clinic-photo"><img src={reception} alt={language === "kk" ? "NARAMED клиникасының тіркеу бөлімі" : language === "en" ? "NARAMED Clinic reception" : "Регистратура клиники NARAMED"} /><span><MapPin />{c.address}</span></div>
       </section>
 
-      <section className="about-clinic-stats" aria-label={language === "kk" ? "Клиника көрсеткіштері" : "Клиника в цифрах"}>
+      <section className="about-clinic-stats" aria-label={language === "kk" ? "Клиника көрсеткіштері" : language === "en" ? "Clinic at a glance" : "Клиника в цифрах"}>
         <article><strong>{doctors.length || "—"}</strong><span>{c.doctors}</span></article>
         <article><strong>{specialtyCount || "—"}</strong><span>{c.specialties}</span></article>
         <article><strong>7</strong><span>{c.days}</span></article>

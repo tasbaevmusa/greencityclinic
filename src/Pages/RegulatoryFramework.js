@@ -32,6 +32,9 @@ export default function RegulatoryFramework() {
   const labels = kk ? {
     eyebrow: "КЛИНИКА ҚҰЖАТТАРЫ", title: "Нормативтік-құқықтық база", intro: "Қазақстан Республикасының денсаулық сақтау саласындағы негізгі нормативтік құқықтық актілері.",
     search: "Құжатты атауы немесе нөмірі бойынша іздеу", all: "Барлығы", codes: "Кодекстер", laws: "Заңдар", government: "Үкімет қаулылары", orders: "Бұйрықтар", open: "Әділет жүйесінде ашу", empty: "Құжаттар табылмады", note: "Құжаттардың өзекті редакциясы ресми «Әділет» ақпараттық-құқықтық жүйесінде қолжетімді."
+  } : language === "en" ? {
+    eyebrow: "CLINIC DOCUMENTS", title: "Legal Framework", intro: "Key laws and regulations of the Republic of Kazakhstan governing healthcare.",
+    search: "Search by document title or number", all: "All", codes: "Codes", laws: "Laws", government: "Government Resolutions", orders: "Ministerial Orders", open: "Open in Adilet", empty: "No documents found", note: "Current versions of these documents are available in Kazakhstan’s official Adilet legal information system."
   } : {
     eyebrow: "ДОКУМЕНТЫ КЛИНИКИ", title: "Нормативно-правовая база", intro: "Основные нормативные правовые акты Республики Казахстан в сфере здравоохранения.",
     search: "Поиск по названию или номеру документа", all: "Все", codes: "Кодексы", laws: "Законы", government: "Постановления", orders: "Приказы", open: "Открыть в системе «Әділет»", empty: "Документы не найдены", note: "Актуальная редакция документов доступна в официальной информационно-правовой системе «Әділет»."

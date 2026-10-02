@@ -1,3 +1,4 @@
+import { clinicDateKey, clinicWeekStart, CLINIC_ZONE } from "../utils/clinicSchedule";
 import React, { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { CalendarDays, Check, ChevronLeft, ChevronRight, Clock3, Pencil, Plus, Search, Stethoscope, UsersRound, X } from "lucide-react";
@@ -18,14 +19,8 @@ const weekDays = [
 
 const emptyShift = { type: "work", start: "09:00", end: "17:00", note: "" };
 
-const formatDate = (date) => new Intl.DateTimeFormat("ru-RU", { day: "numeric", month: "long" }).format(date);
-const startOfWeek = (value) => {
-  const date = new Date(value);
-  const day = date.getDay() || 7;
-  date.setHours(0, 0, 0, 0);
-  date.setDate(date.getDate() - day + 1);
-  return date;
-};
+const formatDate = (date) => new Intl.DateTimeFormat("ru-RU", { timeZone: CLINIC_ZONE, day: "numeric", month: "long" }).format(date);
+const startOfWeek = clinicWeekStart;
 
 function DoctorsAdmin() {
   const { doctors, loading, error, saveDoctor, deleteDoctor } = useDoctors();
@@ -41,8 +36,8 @@ function DoctorsAdmin() {
 
   const dates = useMemo(() => weekDays.map((day, index) => {
     const date = new Date(weekStart);
-    date.setDate(date.getDate() + index);
-    return { ...day, date, key: date.toISOString().slice(0, 10) };
+    date.setUTCDate(date.getUTCDate() + index);
+    return { ...day, date, key: clinicDateKey(date) };
   }), [weekStart]);
 
   useEffect(() => {
@@ -89,7 +84,7 @@ function DoctorsAdmin() {
   };
 
   const workingToday = doctors.filter((doctor) => {
-    const today = new Date().toISOString().slice(0, 10);
+    const today = clinicDateKey();
     return getShift(doctor.id, today)?.type === "work";
   }).length;
   const weeklyHours = Object.values(schedule).reduce((total, doctorSchedule) =>
@@ -125,7 +120,7 @@ function DoctorsAdmin() {
     {loading && <div className="empty-result">Загрузка врачей…</div>}
     <header className="admin-heading">
       <div><p>УПРАВЛЕНИЕ ПЕРСОНАЛОМ</p><h1>Врачи и расписание</h1><span>Планируйте приём и следите за загрузкой специалистов</span></div>
-      <Link to="/">← На сайт</Link>
+      <div><Link to="/tv-schedule" target="_blank" rel="noopener noreferrer">Открыть ТВ-расписание ↗</Link><br /><Link to="/">← На сайт</Link></div>
     </header>
 
     <div className="management-tabs">
@@ -157,7 +152,7 @@ function DoctorsAdmin() {
         <div className="schedule-scroll" tabIndex={0} role="region" aria-label="Расписание врачей — прокрутка по горизонтали">
           <div className="schedule-grid">
             <div className="grid-head doctor-column">Врач / специальность</div>
-            {dates.map((date) => <div className={`grid-head ${date.key === new Date().toISOString().slice(0, 10) ? "today" : ""}`} key={date.key}><b>{date[1]}</b><span>{date.date.getDate()}</span></div>)}
+            {dates.map((date) => <div className={`grid-head ${date.key === clinicDateKey() ? "today" : ""}`} key={date.key}><b>{date[1]}</b><span>{date.date.getUTCDate()}</span></div>)}
             {filteredDoctors.map((doctor) => <React.Fragment key={doctor.id}>
               <div className="doctor-column doctor-cell"><div><b>{doctor.name}</b><span>{doctor.position}</span></div></div>
               {dates.map((date) => {

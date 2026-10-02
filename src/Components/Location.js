@@ -11,7 +11,7 @@ function Location() {
     title: "Байланыс",
     call: "Call-орталық (жазылу, анықтама):",
     all: "Барлық байланыстар мен телефондар",
-  } : {
+  } : language === "en" ? { title: "Contact", call: "Call center (appointments and information):", all: "All contacts and phone numbers" } : {
     title: "Контакты",
     call: "Call-центр (запись, справки):",
     all: "Все контакты и телефоны",

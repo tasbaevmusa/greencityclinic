@@ -3,6 +3,7 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
+  useLocation,
 } from "react-router-dom";
 
 import "./App.css";
@@ -11,6 +12,7 @@ import Home from "./Pages/Home";
 import Legal from "./Pages/Legal";
 import Appointment from "./Pages/Appointment";
 import DoctorDetails from "./Pages/DoctorDetails";
+import AllDoctors from "./Pages/AllDoctors";
 import DoctorsAdmin from "./Pages/DoctorsAdmin";
 import ReviewsAdmin from "./Pages/ReviewsAdmin";
 import NewsAdmin from "./Pages/NewsAdmin";
@@ -25,6 +27,9 @@ import StateSymbols from "./Pages/StateSymbols";
 import TvSchedule from "./Pages/TvSchedule";
 import RegulatoryFramework from "./Pages/RegulatoryFramework";
 import AboutClinic from "./Pages/AboutClinic";
+import FreeServices from "./Pages/FreeServices";
+import AttachmentRules from "./Pages/AttachmentRules";
+import PatientRights from "./Pages/PatientRights";
 
 import AdminDashboard from "./Pages/AdminDashboard";
 import AdminPlaceholder from "./Pages/AdminPlaceholder";
@@ -45,6 +50,11 @@ import ScrollToHash from "./routes/ScrollToHash";
 import WhatsAppFloat from "./Components/WhatsAppFloat";
 import AccessibilityPanel from "./Components/AccessibilityPanel";
 
+function PublicWidgets() {
+  const { pathname } = useLocation();
+  return pathname === "/tv-schedule" ? null : <><WhatsAppFloat /><AccessibilityPanel /></>;
+}
+
 function App() {
   return (
     <AuthProvider>
@@ -54,7 +64,7 @@ function App() {
             <NewsProvider>
             <VacanciesProvider>
           <div className="App">
-            <Router basename="/Health-Plus">
+            <Router basename={process.env.PUBLIC_URL || "/"}>
               <ScrollToHash />
               <Routes>
                 {/* Публичные страницы */}
@@ -62,13 +72,17 @@ function App() {
                 <Route path="/legal" element={<Legal />} />
                 <Route path="/appointment" element={<Appointment />} />
                 <Route path="/doctors/:id" element={<DoctorDetails />} />
+                <Route path="/doctors" element={<AllDoctors />} />
                 <Route path="/doctors-schedule" element={<DoctorsSchedule />} />
                 <Route path="/tv-schedule" element={<TvSchedule />} />
                 <Route path="/about/:section" element={<AboutDetail />} />
                 <Route path="/about/regulatory-framework" element={<RegulatoryFramework />} />
                 <Route path="/about/clinic" element={<AboutClinic />} />
+                <Route path="/about/attachment-rules" element={<AttachmentRules />} />
+                <Route path="/about/patient-rights" element={<PatientRights />} />
                 <Route path="/vacancies" element={<Vacancies />} />
                 <Route path="/services/price-list" element={<PriceList />} />
+                <Route path="/services/free" element={<FreeServices />} />
                 <Route path="/services/:slug" element={<ServiceDetail />} />
                 <Route path="/patients/:section" element={<PatientDetail />} />
                 <Route path="/state-symbols" element={<StateSymbols />} />
@@ -150,8 +164,7 @@ function App() {
                 {/* Страница не найдена */}
                 <Route path="*" element={<NotFoundPage />} />
               </Routes>
-              <WhatsAppFloat />
-              <AccessibilityPanel />
+              <PublicWidgets />
             </Router>
           </div>
             </VacanciesProvider>
